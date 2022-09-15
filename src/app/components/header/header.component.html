@@ -1,4 +1,4 @@
-<div class="container-fluid bg-black">
+<!-- <div class="container-fluid bg-black">
     <div class="row w-100">
         <div class="col"></div>
         <div class="col p-2">
@@ -13,6 +13,25 @@
             <div>
                 <div class="logged" *ngIf="this.userService.isUserValidated" (click)="onLogout()">LOG OUT</div>
             </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container-fluid bg-black">
+    <div class="row w-100">
+        <div class="col"></div>
+        <div class="col p-2">
+            <div class="logoStarWars"></div>
+        </div>
+        <div class="col">
+            <div class="notLogged" *ngIf="this.userService.isUserValidated == false; else logged">
+                <a data-bs-toggle="modal" data-bs-target="#loginModal">LOG IN &nbsp;</a>
+                <span>//&nbsp;&nbsp;</span>
+                <a data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</a>
+            </div>
+            <ng-template #logged>
+                <div class="logged" *ngIf="this.userService.isUserValidated" (click)="onLogout()">LOG OUT</div>
+            </ng-template>
         </div>
     </div>
 </div>

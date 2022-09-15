@@ -34,13 +34,16 @@
                         <p *ngIf="this.userService.isUserValidated"><a (click)="gotoShips()">STARSHIPS</a></p>
                     </li>
                     <li class="nav-item">
-                        <a *ngIf="this.userService.isUserValidated; else noblank" href="#series" style="text-decoration: none;" target="_blank"><p>SERIES</p></a>
-                        <ng-template #noblank>
+                        <a *ngIf="this.userService.isUserValidated; else noBlankSeries" href="#series" style="text-decoration: none;" target="_blank"><p>SERIES</p></a>
+                        <ng-template #noBlankSeries>
                             <a href="#series" style="text-decoration: none;"><p>SERIES</p></a>
                         </ng-template>
                     </li>
                     <li class="nav-item">
-                        <p>FILMS</p>
+                        <a *ngIf="this.userService.isUserValidated; else noBlankFilms" href="#films" style="text-decoration: none;" target="_blank"><p>FILMS</p></a>
+                        <ng-template #noBlankFilms>
+                            <a href="#films" style="text-decoration: none;"><p>FILMS</p></a>
+                        </ng-template>
                     </li>
                     <p></p>
                 </ul>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  disneyText!: string;
+  public getScreenWidth: any;
+  public getScreenHeight: any;
 
-  ngOnInit(): void {
+  constructor() { 
+    this.disneyText = 'ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+';
+     
   }
 
+  ngOnInit(): void {
+    this.getScreenWidth = window.innerWidth;
+      this.getScreenHeight = window.innerHeight;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.getScreenWidth = window.innerWidth;
+    this.getScreenHeight = window.innerHeight;
+
+    if(this.getScreenWidth > 719){
+      this.disneyText = 'ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+';
+    }else{
+      this.disneyText = 'STREAM STAR WARS ON DISNEY+';
+    }
+  }
 }
