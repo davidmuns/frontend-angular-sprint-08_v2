@@ -17,6 +17,7 @@ import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.comp
 import { SliderFilmsComponent } from './components/slider-films/slider-films.component';
 import { StarshipDetailComponent } from './components/starship-detail/starship-detail.component';
 import { StarshipListComponent } from './components/starship-list/starship-list.component';
+import { SliderSeriesComponent } from './components/slider-series/slider-series.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { StarshipListComponent } from './components/starship-list/starship-list.
     SliderFilmsComponent,
     StarshipDetailComponent,
     StarshipListComponent,
+    SliderSeriesComponent,
   ],
   imports: [
     BrowserModule,
