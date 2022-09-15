@@ -1,0 +1,26 @@
+<div class="container-fluid bg-black">
+    <div class="row w-100">
+        <div class="col"></div>
+        <div class="col p-2">
+            <div class="logoStarWars"></div>
+        </div>
+        <div class="col">
+            <div class="notLogged" *ngIf="this.userService.isUserValidated == false">
+                <a data-bs-toggle="modal" data-bs-target="#loginModal">LOG IN &nbsp;</a>
+                <span>//&nbsp;&nbsp;</span>
+                <a data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</a>
+            </div>
+            <div>
+                <div class="logged" *ngIf="this.userService.isUserValidated" (click)="onLogout()">LOG OUT</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-navigation-bar></app-navigation-bar>
+
+<!-- Calling login form (inside a modal with id: loginModal) when pressing LOGIN button -->
+<app-login-form></app-login-form>
+
+<!-- Calling sign up form (inside a modal with id: signUpModal) when pressing SIGN UP button -->
+<app-sign-up-form></app-sign-up-form>

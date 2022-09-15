@@ -1,0 +1,71 @@
+/* src: https://www.youtube.com/watch?v=1lAfd2vR_SQ */
+
+.disney-link {
+   
+    font-size: 15px;
+    text-align: center;
+    color:darkgray;
+    cursor: pointer;
+    /* display: inline-block; */
+}
+.container-fluid {
+    background-color: rgb(12, 8, 8);
+}
+
+a {
+    text-decoration: none;
+}
+a:hover{
+    color:white;
+}
+
+body {
+    overflow: hidden;
+    background-color: transparent;
+    margin: 0;
+    color: yellow;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 0 60px 0;
+    font-size: 5rem;
+}
+
+p {
+    font-size: 3rem;
+    line-height: 6rem;
+    margin-bottom: 20px;
+}
+
+.star-wars {
+    padding: 40px;
+    text-align: justify;
+    margin: 0 auto;
+    letter-spacing: 1.5px;
+    max-width: 1080px;
+    height: 800px;
+    transform: perspective(200px) rotateX(14deg);
+    animation: intro 15s linear infinite;
+}
+
+@keyframes intro {
+    0% {
+        transform: perspective(200px) rotateX(14deg) translateY(800px);
+        opacity: 3;
+    }
+
+    60% {
+        opacity: 2;
+    }
+
+    80% {
+        transform: perspective(200px) rotateX(20deg) translateY(-1000px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: perspective(200px) rotateX(20deg) translateY(-1700px);
+        opacity: 0;
+    }
+}

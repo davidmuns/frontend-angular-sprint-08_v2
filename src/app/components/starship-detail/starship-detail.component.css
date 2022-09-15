@@ -1,0 +1,18 @@
+.card-body {
+    border-top: 1px solid rgb(249, 76, 105);
+}
+
+h5 {
+    font-family: "sans-serif";
+    font-size: 20px;
+}
+
+.container {
+    width: 800px;
+}
+
+@media screen and (max-width:720px) {    
+    .container {
+        width: 400px;
+    }
+}
