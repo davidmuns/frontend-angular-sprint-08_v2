@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: 'starship/all',
     component: StarshipListComponent,
-    canActivate: [UserGuard]
+    // canActivate: [UserGuard]
   },
   {
     path: 'starship',

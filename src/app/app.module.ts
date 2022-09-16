@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './services/data.service';
+import { StarshipService } from './services/starship.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -18,6 +18,8 @@ import { SliderFilmsComponent } from './components/slider-films/slider-films.com
 import { StarshipDetailComponent } from './components/starship-detail/starship-detail.component';
 import { StarshipListComponent } from './components/starship-list/starship-list.component';
 import { SliderSeriesComponent } from './components/slider-series/slider-series.component';
+import { PilotDetailComponent } from './components/pilot-detail/pilot-detail.component';
+import { PilotService } from './services/pilot.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { SliderSeriesComponent } from './components/slider-series/slider-series.
     StarshipDetailComponent,
     StarshipListComponent,
     SliderSeriesComponent,
+    PilotDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { SliderSeriesComponent } from './components/slider-series/slider-series.
     FormsModule,
     AppRoutingModule,
   ],
-  providers: [DataService, UserService],
+  providers: [StarshipService, PilotService , UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

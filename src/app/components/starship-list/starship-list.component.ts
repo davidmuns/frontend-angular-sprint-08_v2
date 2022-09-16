@@ -1,4 +1,5 @@
-import { DataService } from '../../services/data.service';
+import { PilotService } from './../../services/pilot.service';
+import { StarshipService } from '../../services/starship.service';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { IStarship } from 'src/app/models/istarship';
 import { Router } from '@angular/router';
@@ -6,26 +7,29 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-starship-list',
   templateUrl: './starship-list.component.html',
-  styleUrls: ['./starship-list.component.css']
+  styleUrls: ['./starship-list.component.css'],
 })
-
 export class StarshipListComponent implements OnInit {
   starships: Array<IStarship> = [];
   starship!: IStarship;
   pageNumber: number;
   isNextBtnDisabled: boolean;
   isPreviousBtnDisabled: boolean;
+  urlPilots: Array<string>;
 
-  constructor(private dataService: DataService, private router: Router) {
+  constructor(
+    private starshipService: StarshipService,
+    private router: Router,
+    private pilotService: PilotService
+  ) {
     this.isPreviousBtnDisabled = false;
     this.isNextBtnDisabled = false;
     this.pageNumber = 1;
     this.getStarships();
+    this.urlPilots = [];
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   public goNext() {
     this.pageNumber++;
@@ -52,21 +56,21 @@ export class StarshipListComponent implements OnInit {
   }
 
   public getStarships() {
-    this.dataService.getStarships(this.pageNumber).subscribe(
-      (data: any) => {
+    this.starshipService
+      .getStarships(this.pageNumber)
+      .subscribe((data: any) => {
         this.starships = data.results;
-      }
-    )
+      });
   }
 
   public getStarshipById(url: string) {
-    this.dataService.getStarshipById(url).subscribe(
-      (data: any) => {
-        this.starship = data;
-        this.dataService.subscribeTrigger.emit(this.starship);
-      }
-    )
-    this.router.navigate(['starship'])
+    this.starshipService.getStarshipById(url).subscribe((data: any) => {
+      this.starship = data;
+      this.urlPilots = data.pilots;
+      this.starshipService.subscribeTrigger.emit(this.starship);
+      this.pilotService.subscribeTrigger.emit(this.urlPilots);
+    });
+    this.router.navigate(['starship']);
   }
 
   public getStarship() {

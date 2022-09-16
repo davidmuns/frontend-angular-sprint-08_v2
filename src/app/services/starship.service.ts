@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class StarshipService {
   @Output() subscribeTrigger: EventEmitter<any> = new EventEmitter();
   baseUrl = environment.baseApi;
   pagedUrl = environment.pagedUrl;

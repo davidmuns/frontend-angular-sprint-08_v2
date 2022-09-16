@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { IStarship } from 'src/app/models/istarship';
-import { DataService } from './../../services/data.service';
+import { StarshipService } from '../../services/starship.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,10 +13,10 @@ export class StarshipDetailComponent implements OnInit {
   id!: string;
   img: string = '';
   defImg: string = '';
-  constructor(private dataService: DataService, private readonly router: Router) {
-    this.id = this.dataService.starshipId;
+  constructor(private starshipService: StarshipService, private readonly router: Router) {
+    this.id = this.starshipService.starshipId;
     this.img = `https://starwars-visualguide.com/assets/img/starships/${this.id}.jpg`;
-    this.dataService.subscribeTrigger.subscribe(
+    this.starshipService.subscribeTrigger.subscribe(
       data => {
         this.starship = data;
       }
