@@ -27,12 +27,11 @@
                         <p [routerLink]="''">HOME</p>
                     </li>
                     <li class="nav-item">
-                        <!-- <p *ngIf="this.userService.isUserValidated === false" data-bs-toggle="modal"
+                        <p *ngIf="this.userService.isUserValidated === false" data-bs-toggle="modal"
                             data-bs-target="#loginModal">
                             STARSHIPS
-                        </p> -->
-                        <!-- <p *ngIf="this.userService.isUserValidated"><a (click)="gotoShips()">STARSHIPS</a></p> -->
-                        <p><a (click)="gotoShips()">STARSHIPS</a></p>
+                        </p>
+                        <p *ngIf="this.userService.isUserValidated"><a (click)="gotoShips()">STARSHIPS</a></p>
                     </li>
                     <li class="nav-item">
                         <a *ngIf="this.userService.isUserValidated; else noBlankSeries" href="#series" style="text-decoration: none;" target="_blank"><p>SERIES</p></a>

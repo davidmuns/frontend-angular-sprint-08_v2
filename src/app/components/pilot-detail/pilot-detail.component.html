@@ -1,16 +1,45 @@
-<div class="container">
-    <div class="row">
-        <div class="col-3" *ngFor="let pilot of this.pilots">
-            <p style="color: yellow;">Name: {{ pilot.name }} </p>
-            <p style="color: yellow;">Height: {{ pilot.height }} </p>
-            <p style="color: yellow;">Mass: {{ pilot.mass }} </p>
-            <p style="color: yellow;">Hair color: {{ pilot.hair_color }} </p>
-            <p style="color: yellow;">Skin color: {{ pilot.skin_color }} </p>
-            <p style="color: yellow;">Eye color: {{ pilot.eye_color }} </p>
-            <p style="color: yellow;">Date of birth: {{ pilot.birth_year }} </p>
-            <p style="color: yellow;">Gender: {{ pilot.gender }} </p>
-            <p style="color: yellow;">URL: {{ pilot.url }} </p>
+<section class="pt-5" id="pilot-cards">
+    <h3 class="text-center mb-2">PILOTS</h3>
+
+    <div class="container px-4 px-lg-5">
+
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+            <div class="col-12 col-lg-3 mb-5" *ngFor="let pilot of this.pilots; let i = index">
+
+                <div class="card h-100 shadow bg-black" style="z-index: -1;">
+
+                    <img [src]="this.pilotImgs[i]" class="card-img-top"
+                        onerror="this.src='../../../assets/default-img.jpg'" alt="starship-photo">
+                    
+                    <div class="card-body p-4">
+
+                        <h3 class="card-title">{{ pilot.name }}</h3>
+                        <div class="container-fluid mb-2 p-0">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-text">Height: <span>{{ pilot.height }}</span></p>
+                                    <p class="card-text">Mass: <span>{{ pilot.mass }}</span></p>
+                                    <p class="card-text">Hair color: <span>{{ pilot.hair_color }}</span></p>
+                                    <p class="card-text">Skin color: <span>{{ pilot.skin_color }}</span></p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="card-text">Eye color: <span>{{ pilot.eye_color }}</span></p>
+                                    <p class="card-text">Date of birth: <span>{{ pilot.birth_year }}</span></p>
+                                    <p class="card-text">Gender: <span>{{ pilot.gender }}</span></p>
+                                    <!-- <p class="card-text" style="color: white;">URL: {{ pilot.url }}</p> -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>                 
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mb-5">
+            <a class="btn bg-outline-dark" style="color: #edd700;" (click)="gotoStarships()">
+                <i class="fa-solid fa-backward"></i> Back
+            </a>
         </div>
     </div>
-
-</div>
+</section>

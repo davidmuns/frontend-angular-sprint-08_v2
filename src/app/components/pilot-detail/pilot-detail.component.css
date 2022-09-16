@@ -1,0 +1,17 @@
+h3 {
+    font-family: "sans-serif";
+    /* font-size: 50px; */
+    color: #edd700;
+}
+
+.card-body {
+    border-top: 3px solid rgb(249, 76, 105);
+}
+
+p {
+    color: white;
+}
+
+span {
+    color: gray;
+}

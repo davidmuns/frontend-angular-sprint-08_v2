@@ -7,10 +7,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class StarshipService {
+  // https://www.youtube.com/watch?v=HTivuXwS2-Y
   @Output() subscribeTrigger: EventEmitter<any> = new EventEmitter();
   baseUrl = environment.baseApi;
   pagedUrl = environment.pagedUrl;
   starshipId!: string;
+  
   constructor(private readonly http: HttpClient) { }
 
   public getStarships(pageNumber: any): Observable<any> {
