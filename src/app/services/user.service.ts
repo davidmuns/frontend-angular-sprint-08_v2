@@ -1,64 +1,75 @@
 import { IUser } from './../models/iuser';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private users: IUser[];
-  private usersSubject$: Subject<IUser[]>;
-  userExist: boolean;
-  isUserValidated: boolean;
-  user!: IUser;
+  private userExist: boolean;
+  private isUserValidated: boolean;
 
-  constructor() {
+  constructor(private toastr: ToastrService) {
     this.users = [];
-    this.usersSubject$ = new Subject();
     this.userExist = false;
     this.isUserValidated = false;
+  }
 
+  public getUserExist(): boolean{
+    return this.userExist;
+  }
+
+  public getIsUserValidated(): boolean{
+    return this.isUserValidated;
+  }
+
+  public setIsUserValidated(condition: boolean){
+    this.isUserValidated = condition;
   }
 
   public checkIfUserExists(user: IUser): boolean {
-    this.user = user;
     let checks = 0
     this.users.forEach(data => {
-      if (this.user.email === data.email && this.user.password === data.password) {
+      if (user.email === data.email && user.password === data.password) {
         checks++
       }
     })
     this.userExist = checks != 0 ? true : false;
     if (this.userExist === false) {
-      alert('Invalid email or password.')
+      this.toastr.error('Invalid email or password.', '', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
     } else {
+      this.toastr.success(`Welcome again ${user.email}!`, '', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
       this.isUserValidated = true;
     }
     return this.userExist;
   }
 
   public addUser(user: IUser) {
-    this.user = user;
     let emailExists: boolean = false;
     this.users.forEach(item => {
-      if (item.email === this.user.email) {
+      if (item.email === user.email) {
         emailExists = true;
       }
     })
     if (emailExists === false) {
       this.users.push(user);
-      // changes register
-      this.usersSubject$.next(this.users);
+      this.toastr.success(`Welcome again ${user.email}!`, '', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
       this.userExist = false;
       this.isUserValidated = true;
     } else {
-      alert(`email ${this.user.email} already exists`)
+      this.toastr.error(`email ${user.email} already exists`, '', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
       this.userExist = true;
       this.isUserValidated = false;
     }
-  }
-  public getUsers$(): Observable<IUser[]> {
-    // event emiter
-    return this.usersSubject$.asObservable();
   }
 }

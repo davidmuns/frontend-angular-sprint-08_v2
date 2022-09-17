@@ -3,18 +3,6 @@ nav{
     border-bottom: 1px solid dimgray;
 }
 
-/* div{
-    border-left: 1px solid dimgray;
-} */
-
-/* p{
-    color:darkgray;
-    font-weight: bold;
-    text-align: center;
-    padding: 8px 28px;
-    margin:0px;
-    cursor: pointer;
-} */
 p:hover{
     color:white;
 }
@@ -28,7 +16,6 @@ p{
     cursor: pointer;
     border-left: 1px solid dimgray;
 }
-
 
 @media screen and (max-width:500px) {
     

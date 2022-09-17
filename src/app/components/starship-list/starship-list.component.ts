@@ -1,6 +1,6 @@
 import { PilotService } from './../../services/pilot.service';
 import { StarshipService } from '../../services/starship.service';
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IStarship } from 'src/app/models/istarship';
 import { Router } from '@angular/router';
 

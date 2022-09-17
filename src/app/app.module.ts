@@ -21,6 +21,10 @@ import { SliderSeriesComponent } from './components/slider-series/slider-series.
 import { PilotDetailComponent } from './components/pilot-detail/pilot-detail.component';
 import { PilotService } from './services/pilot.service';
 
+// external
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +47,8 @@ import { PilotService } from './services/pilot.service';
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [StarshipService, PilotService , UserService],
   bootstrap: [AppComponent],

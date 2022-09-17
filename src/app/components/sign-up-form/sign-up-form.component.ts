@@ -1,5 +1,5 @@
 import { UserService } from './../../services/user.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,15 +8,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./sign-up-form.component.css']
 })
 export class SignUpFormComponent implements OnInit {
-  @ViewChild('closebutton') closebutton: any;
+  @ViewChild('closebutton') 
+  closebutton!: ElementRef;
+  
   signUpForm: FormGroup;
-
-  // constructor(private userService: UserService) {
-  //   this.signUpForm = new FormGroup({
-  //     email: new FormControl(),
-  //     password: new FormControl()
-  //   });
-  // }
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) {
     // Reactive form
@@ -36,7 +31,7 @@ export class SignUpFormComponent implements OnInit {
     this.userService.addUser(newUser);
 
     // Closing modal window and reseting form if user exists by pressing button submit (create account)
-    if (this.userService.userExist === false) {
+    if (this.userService.getUserExist() === false) {
       this.signUpForm.reset();
       this.closebutton.nativeElement.click();
     } else {

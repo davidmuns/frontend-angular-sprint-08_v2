@@ -10,24 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  users: IUser[];
+  // users: IUser[];
 
   constructor(public readonly userService: UserService, private router: Router) {
-    this.users = [];
+    // this.users = [];
   }
 
   ngOnInit(): void {
 
-    // Getting updated user list
-    this.userService.getUsers$().subscribe(
-      users => {
-        this.users = users;
-      }
-    )
   }
 
   public onLogout() {
-    this.userService.isUserValidated = false;
+    this.userService.setIsUserValidated(false);
     this.router.navigate([''])
   }
 

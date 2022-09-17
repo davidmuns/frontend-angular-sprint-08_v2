@@ -9,20 +9,11 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
+  // https://www.youtube.com/watch?v=AyuIaJTqBLs
   @ViewChild('closebutton') closebutton: any;
   loginForm: FormGroup;
-  users: IUser[];
-
-  // constructor(private userService: UserService) {
-  //   this.users = [];
-  //   this.loginForm = new FormGroup({
-  //     email: new FormControl(),
-  //     password: new FormControl()
-  //   });
-  // }
-
+ 
   constructor(private userService: UserService, private formBuilder: FormBuilder) {
-    this.users = [];
     // Reactive form
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -32,9 +23,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getUsers$().subscribe(users => {
-      this.users = users;
-    })
     this.loginForm.reset();
   }
 
