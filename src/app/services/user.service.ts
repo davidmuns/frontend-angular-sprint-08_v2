@@ -59,7 +59,7 @@ export class UserService {
     })
     if (emailExists === false) {
       this.users.push(user);
-      this.toastr.success(`Welcome again ${user.email}!`, '', {
+      this.toastr.success(`Welcome ${user.email}!`, '', {
         timeOut: 3000, positionClass: 'toast-top-center'
       });
       this.userExist = false;

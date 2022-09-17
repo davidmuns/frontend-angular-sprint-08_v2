@@ -1,3 +1,4 @@
+import { IPilot } from './../models/ipilot';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter, Output } from '@angular/core';
@@ -12,8 +13,8 @@ export class PilotService {
 
   constructor(private readonly http: HttpClient) { }
 
-  public getPilot(url: string): Observable<any> {
-    return this.http.get<any>(url)
+  public getPilot(url: string): Observable<IPilot> {
+    return this.http.get<IPilot>(url)
   }
   
   public getPilotId(url: string): string {

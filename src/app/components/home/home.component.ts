@@ -20,7 +20,8 @@ export class HomeComponent implements OnInit {
     this.getScreenWidth = window.innerWidth;
       this.getScreenHeight = window.innerHeight;
   }
-
+  
+  // Gettinng screen size in real time
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
     this.getScreenWidth = window.innerWidth;

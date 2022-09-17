@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseApi: 'https://swapi.dev/api/starships/',
+  baseApi: 'https://swapi.dev/api/',
   pagedUrl: 'https://swapi.dev/api/starships/?page='
 };
 

@@ -13,7 +13,7 @@ export class SliderSeriesComponent implements OnInit {
     config.interval = 3000;
     config.keyboard = true;
     config.pauseOnHover = true;
-    config.showNavigationIndicators = false;
+    config.showNavigationIndicators = true;
   }
 
   ngOnInit(): void {

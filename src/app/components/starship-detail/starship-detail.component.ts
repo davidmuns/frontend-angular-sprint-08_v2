@@ -13,6 +13,7 @@ export class StarshipDetailComponent implements OnInit {
   id!: string;
   img: string = '';
   defImg: string = '';
+  
   constructor(private starshipService: StarshipService, private readonly router: Router) {
     this.id = this.starshipService.getStarshipId();
     this.img = `https://starwars-visualguide.com/assets/img/starships/${this.id}.jpg`;

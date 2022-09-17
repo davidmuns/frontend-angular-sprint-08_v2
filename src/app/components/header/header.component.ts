@@ -2,27 +2,27 @@ import { Router } from '@angular/router';
 import { IUser } from './../../models/iuser';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  constructor(
+    public readonly userService: UserService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
-  // users: IUser[];
-
-  constructor(public readonly userService: UserService, private router: Router) {
-    // this.users = [];
-  }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   public onLogout() {
+    this.toastr.warning('May the Force be with you..', '', {
+      timeOut: 5000, positionClass: 'toast-top-center'
+    });
     this.userService.setIsUserValidated(false);
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
-
 }

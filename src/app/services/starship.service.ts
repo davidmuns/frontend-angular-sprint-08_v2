@@ -26,7 +26,6 @@ export class StarshipService {
 
   public getStarshipById(url: string): Observable<IStarship> {
     this.starshipId = url.replace(/[^0-9]+/g, "");
-    return this.http.get<IStarship>(`${this.baseUrl}${this.starshipId}`)
-  
+    return this.http.get<IStarship>(this.baseUrl + 'starships/' + this.starshipId)
   }
 }

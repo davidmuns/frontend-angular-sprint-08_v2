@@ -34,7 +34,7 @@ span{
     margin-top: 70px;
     cursor:auto;
 }
-.logged{
+.logged>a{
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -43,7 +43,7 @@ span{
     cursor: pointer;
     font-weight: bold;
 }
-.logged:hover{
+.logged>a:hover{
     color:white;
 }
 
