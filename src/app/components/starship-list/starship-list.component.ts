@@ -33,7 +33,7 @@ export class StarshipListComponent implements OnInit {
 
   public goNext() {
     this.pageNumber++;
-    if (this.pageNumber > 4) {
+    if (this.pageNumber >= 4) {
       this.isNextBtnDisabled = true;
       this.pageNumber = 4;
     } else {
@@ -45,7 +45,7 @@ export class StarshipListComponent implements OnInit {
 
   public goPrevious() {
     this.pageNumber--;
-    if (this.pageNumber < 1) {
+    if (this.pageNumber <= 1) {
       this.isPreviousBtnDisabled = true;
       this.pageNumber = 1;
     } else {

@@ -8,9 +8,9 @@
     border-radius: 15px;
 }
 
-body {
+/* body {
     background-image: url("../../../assets/stars_galaxies.jpg");
-}
+} */
 
 
 p {
@@ -22,3 +22,5 @@ p {
 button {
     color: #edd700;
 }
+
+

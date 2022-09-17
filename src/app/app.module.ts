@@ -21,6 +21,7 @@ import { SliderSeriesComponent } from './components/slider-series/slider-series.
 import { PilotDetailComponent } from './components/pilot-detail/pilot-detail.component';
 import { PilotService } from './services/pilot.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,7 @@ import { PilotService } from './services/pilot.service';
     StarshipDetailComponent,
     StarshipListComponent,
     SliderSeriesComponent,
-    PilotDetailComponent,
+    PilotDetailComponent
   ],
   imports: [
     BrowserModule,
