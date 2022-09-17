@@ -26,6 +26,11 @@ export class SignUpFormComponent implements OnInit {
     this.signUpForm.reset();
   }
 
+  public onClose(){
+    this.signUpForm.reset();
+  }
+
+
   public onSubmit() {
     const newUser = this.signUpForm.value;
     this.userService.addUser(newUser);

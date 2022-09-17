@@ -1,10 +1,10 @@
-<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <!-- modal header-->
             <div class="modal-header d-flex justify-content-end p-0" style="border: none;">
-                <button type="button" class="button-close" #closebutton data-bs-dismiss="modal">X</button>
+                <button type="button" class="button-close" #closebutton data-bs-dismiss="modal" (click)="onClose()">X</button>
             </div>
             <!-- modal body -->
             <div class="modal-body">

@@ -26,6 +26,10 @@ export class LoginFormComponent implements OnInit {
     this.loginForm.reset();
   }
 
+  public onClose(){
+    this.loginForm.reset();
+  }
+
   public onSubmit() {
     const user: IUser = this.loginForm.value;
     const userExists = this.userService.checkIfUserExists(user);
