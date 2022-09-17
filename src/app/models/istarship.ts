@@ -17,4 +17,5 @@ export interface IStarship {
     // created: string,
     // edited: string,
     url: string
+    pilots: string[]
 }

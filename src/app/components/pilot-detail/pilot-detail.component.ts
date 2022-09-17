@@ -19,7 +19,6 @@ export class PilotDetailComponent implements OnInit {
 
   constructor(private pilotService: PilotService, private router: Router) {
     this.pilotService.subscribeTrigger.subscribe(data => {
-      // data.forEach((url: any) => this.getPilot(url))
       if (data.length > 0) {
         data.forEach((url: string) => {
           this.getPilot(url);

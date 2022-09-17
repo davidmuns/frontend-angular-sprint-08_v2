@@ -64,13 +64,15 @@ export class StarshipListComponent implements OnInit {
   }
 
   public getStarshipById(url: string) {
-    this.starshipService.getStarshipById(url).subscribe((data: any) => {
+    this.starshipService.getStarshipById(url).subscribe((data: IStarship) => {
       this.starship = data;
       this.urlPilots = data.pilots;
       this.starshipService.subscribeTrigger.emit(this.starship);
       this.pilotService.subscribeTrigger.emit(this.urlPilots);
     });
     this.router.navigate(['starship']);
+    console.log(this.starship);
+    console.log(this.urlPilots);
   }
 
   public getStarship() {

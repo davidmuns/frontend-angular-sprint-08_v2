@@ -1,3 +1,4 @@
+import { IStarship } from 'src/app/models/istarship';
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -19,8 +20,8 @@ export class StarshipService {
     return this.http.get<any>(`${this.pagedUrl}${pageNumber}`)
   }
 
-  public getStarshipById(url: string) {
+  public getStarshipById(url: string): Observable<IStarship> {
     this.starshipId = url.replace(/[^0-9]+/g, "");
-    return this.http.get<any>(`${this.baseUrl}/${this.starshipId}`)
+    return this.http.get<IStarship>(`${this.baseUrl}/${this.starshipId}`)
   }
 }

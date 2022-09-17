@@ -10,19 +10,10 @@ import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'starship/all',
-    component: StarshipListComponent,
-    canActivate: [UserGuard]
-  },
-  {
-    path: 'starship',
-    component: StarshipDetailComponent
-  }
+  {path: '', component: HomeComponent},
+  {path: 'starship/all', component: StarshipListComponent, canActivate: [UserGuard]},
+  {path: 'starship', component: StarshipDetailComponent},
+  {path: '**', redirectTo: '', pathMatch: 'full'}
 
 ]
 
