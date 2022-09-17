@@ -4,6 +4,10 @@ h3 {
     color: #edd700;
 }
 
+.card {
+    background-color: #181818;
+}
+
 .card-body {
     border-top: 3px solid rgb(249, 76, 105);
 }

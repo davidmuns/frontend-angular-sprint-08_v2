@@ -1,19 +1,18 @@
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content bg-black" style="border: 1px solid #edd700;">
-            <div class="modal-header" style="border: none;">
-
-                <!-- close modal window button -->
-                <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" aria-label="Close"
-                    style="color: gray; font-size: 35px;">X</button>
+        <div class="modal-content">
+            <!-- modal header -->
+            <div class="modal-header d-flex justify-content-end p-0" style="border: none;">
+                <button type="button" class="button-close" #closebutton data-bs-dismiss="modal">X</button>
             </div>
-            <div class="modal-body" style="color: white">
+            <div class="modal-body">
 
                 <!-- logo star wars -->
                 <div class="mb-4" style="text-align: center;">
-                    <img src="../../../assets/logo-star-wars-yellow.jpeg" alt="" height="35%" width="35%">
+                    <img src="../../../assets/star-wars_disney-logo-removebg-preview.png" alt="" height="70%"
+                        width="70%">
                 </div>
-                <div class="text-center mb-3" style="color: #edd700;">ENTER YOUR EMAIL AND PASSWORD</div>
+                <div class="text-center title mb-3">ENTER YOUR EMAIL AND PASSWORD</div>
 
                 <!-- LOGIN FORM -->
                 <form [formGroup]="this.loginForm" (ngSubmit)="onSubmit()">

@@ -1,3 +1,7 @@
+.starship-container {
+    background-color: #181818;
+}
+
 .starship-container:hover {
     border: 1px solid #edd700;
     cursor: pointer;
