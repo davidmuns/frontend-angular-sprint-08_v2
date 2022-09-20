@@ -1,6 +1,6 @@
 <!-- img onerror => https://gist.github.com/dprea/1cd27241db661818e509  -->
 <div style="position: fixed;width: 100%;height: auto;top: 0;">
-    <app-header></app-header>
+  <app-header></app-header>
 </div>
 
 <!-- <div class="container" style="padding: 50; background-color: black; margin-top: 200px;">
@@ -55,49 +55,49 @@
 </div> -->
 
 <section class="pt-5" style="margin-top: 200px;">
-    <h3 class="text-center mb-2">STARSHIP</h3>
+  <h3 class="text-center mb-2">STARSHIP</h3>
 
-    <div class="container px-4 px-lg-5">
+  <div class="container px-4 px-lg-5">
 
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-            <div class="col-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-5">
+      <div class="col-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-5">
 
-                <div class="card h-100" style="z-index: -1;">
+        <div class="card h-100" style="z-index: -1;">
 
-                    <img [src]="this.img" class="card-img-top"
-                        onerror="this.src='../../../assets/default-img.jpg'" alt="starship-photo">
-                    
-                    <div class="card-body p-4">
+          <img [src]="this.img" class="card-img-top" onerror="this.src='../../../assets/default-img.jpg'"
+            alt="starship-photo">
 
-                        <h3 class="card-title">{{ this.starship.name }}</h3>
-                        <div class="container-fluid mb-2 p-0">
-                            <div class="row">
-                                <div class="col-6">
-                                    <p class="card-text">Model: <span>{{ starship.model }}</span></p>
-                                    <p class="card-text">Manufacturer: <span>{{ starship.manufacturer }}</span></p>
-                                    <p class="card-text">Cost: <span>{{ starship.cost_in_credits }}</span></p>
-                                   
-                                </div>
-                                <div class="col-6">
-                                    <p class="card-text">Length: <span>{{ starship.length }}</span></p>
-                                    <p class="card-text">Speed: <span>{{ starship.max_atmosphering_speed }}</span></p>
-                                    <p class="card-text">Creww: <span>{{ starship.crew }}</span></p>
-                                   
-                                </div>
-                            </div>
-                        </div>
+          <div class="card-body p-4">
 
-                    </div>                 
+            <h3 class="card-title">{{ this.starship.name }}</h3>
+            <div class="container-fluid mb-2 p-0">
+              <div class="row">
+                <div class="col-6">
+                  <p class="card-text">Model: <span>{{ starship.model }}</span></p>
+                  <p class="card-text">Manufacturer: <span>{{ starship.manufacturer }}</span></p>
+                  <p class="card-text">Cost: <span>{{ starship.cost_in_credits }}</span></p>
+
                 </div>
+                <div class="col-6">
+                  <p class="card-text">Length: <span>{{ starship.length }}</span></p>
+                  <p class="card-text">Speed: <span>{{ starship.max_atmosphering_speed }}</span></p>
+                  <p class="card-text">Crew: <span>{{ starship.crew }}</span></p>
+
+                </div>
+              </div>
             </div>
+
+          </div>
         </div>
-        <div class="row d-flex justify-content-center mb-5">
-            <a class="btn bg-outline-dark" style="color: #edd700;" (click)="gotoStarships()">
-                <i class="fa-solid fa-backward"></i> Back
-            </a>
-        </div>
+      </div>
     </div>
+    <div class="row d-flex justify-content-center mb-5">
+      <a class="btn bg-outline-dark" style="color: #edd700;" (click)="gotoStarships()">
+        <i class="fa-solid fa-backward"></i> Back
+      </a>
+    </div>
+  </div>
 </section>
 
 <app-pilot-detail></app-pilot-detail>
