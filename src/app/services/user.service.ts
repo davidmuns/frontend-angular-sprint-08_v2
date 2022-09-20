@@ -1,6 +1,5 @@
 import { IUser } from './../models/iuser';
 import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -10,11 +9,16 @@ export class UserService {
   private users: IUser[];
   private userExist: boolean;
   private isUserValidated: boolean;
+  private user!: IUser;
 
   constructor(private toastr: ToastrService) {
     this.users = [];
     this.userExist = false;
     this.isUserValidated = false;
+  }
+
+  public getUser(): IUser {
+    return this.user;
   }
 
   public getUserExist(): boolean{
@@ -38,13 +42,14 @@ export class UserService {
     })
     this.userExist = checks != 0 ? true : false;
     if (this.userExist === false) {
-      this.toastr.error('Invalid email or password.', '', {
-        timeOut: 3000, positionClass: 'toast-top-center'
+      this.toastr.error('We do not recognize the user name or password. Try again or create an account.', '', {
+        timeOut: 5000, positionClass: 'toast-top-center'
       });
     } else {
       this.toastr.success(`Welcome again ${user.email}!`, '', {
-        timeOut: 3000, positionClass: 'toast-top-center'
+        timeOut: 5000, positionClass: 'toast-top-center'
       });
+      this.user = user;
       this.isUserValidated = true;
     }
     return this.userExist;
@@ -60,13 +65,14 @@ export class UserService {
     if (emailExists === false) {
       this.users.push(user);
       this.toastr.success(`Welcome ${user.email}!`, '', {
-        timeOut: 3000, positionClass: 'toast-top-center'
+        timeOut: 5000, positionClass: 'toast-top-center'
       });
       this.userExist = false;
       this.isUserValidated = true;
+      this.user = user;
     } else {
       this.toastr.error(`email ${user.email} already exists`, '', {
-        timeOut: 3000, positionClass: 'toast-top-center'
+        timeOut: 5000, positionClass: 'toast-top-center'
       });
       this.userExist = true;
       this.isUserValidated = false;

@@ -11,8 +11,10 @@
                 <a data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</a>
             </div>
             <ng-template #logged>
-                <div class="logged" *ngIf="this.userService.getIsUserValidated()" (click)="onLogout()">
-                    <a href="#star-wars-episode" style="text-decoration: none;">LOG OUT</a> 
+                <div class="logged" *ngIf="this.userService.getIsUserValidated()">
+                    <a style="text-decoration: none; color: darkgray; cursor: auto;">{{ this.userService.getUser().email }} &nbsp;</a>
+                    <span>//&nbsp;&nbsp;</span>
+                    <a href="#star-wars-episode" style="text-decoration: none;" (click)="onLogout()">LOG OUT</a>                   
                 </div>
             </ng-template>
         </div>

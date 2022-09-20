@@ -19,9 +19,7 @@ header{
     align-items: center;
     justify-content: flex-end;
 }
-.notLogged>a:hover{
-    color:white;
-}
+
 .notLogged>a{
     color: darkgray;
     margin-top: 70px;
@@ -29,10 +27,22 @@ header{
     font-weight: bold;
 }
 
+.notLogged>a:hover{
+    color:white;
+}
+
 span{
     color: darkgray;
     margin-top: 70px;
     cursor:auto;
+}
+
+.logged{
+    min-width:150px;
+    color: white;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .logged>a{
     display: flex;
@@ -40,9 +50,9 @@ span{
     justify-content: flex-end;
     color:darkgray;
     margin-top: 70px;
-    cursor: pointer;
     font-weight: bold;
 }
+
 .logged>a:hover{
     color:white;
 }
