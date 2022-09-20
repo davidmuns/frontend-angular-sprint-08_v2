@@ -16,6 +16,8 @@ export class SignUpFormComponent implements OnInit {
   constructor(private userService: UserService, private formBuilder: FormBuilder) {
     // Reactive form
     this.signUpForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     })

@@ -1,10 +1,10 @@
 <div class="container-fluid bg-black">
     <div class="row w-100">
-        <div class="col"></div>
-        <div class="col p-2">
+        <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4"></div>
+        <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 p-2">
             <div class="logoStarWars"></div>
         </div>
-        <div class="col">
+        <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
             <div class="notLogged" *ngIf="this.userService.getIsUserValidated() == false; else logged">
                 <a data-bs-toggle="modal" data-bs-target="#loginModal">LOG IN &nbsp;</a>
                 <span>//&nbsp;&nbsp;</span>
@@ -12,9 +12,10 @@
             </div>
             <ng-template #logged>
                 <div class="logged" *ngIf="this.userService.getIsUserValidated()">
-                    <a style="text-decoration: none; color: darkgray; cursor: auto;">{{ this.userService.getUser().email }} &nbsp;</a>
+                    <a style="text-decoration: none; color: darkgray; cursor: auto;">{{ this.userService.getUser().email
+                        }} &nbsp;</a>
                     <span>//&nbsp;&nbsp;</span>
-                    <a href="#star-wars-episode" style="text-decoration: none;" (click)="onLogout()">LOG OUT</a>                   
+                    <a href="#star-wars-episode" style="text-decoration: none;" (click)="onLogout()">LOG OUT</a>
                 </div>
             </ng-template>
         </div>

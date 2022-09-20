@@ -19,6 +19,38 @@
                 <!-- SIGN UP FORM -->
                 <form [formGroup]="this.signUpForm" (ngSubmit)="onSubmit()">
 
+                    <!-- name input -->
+                    <div class="container-fluid d-flex justify-content-center">
+                        <div class="form-group mb-4 row col-12">
+                            <input type="name" class="form-control" id="nameInput" formControlName="name"
+                                placeholder="Name">
+                        </div>
+                    </div>
+
+                    <!-- Required alert message -->
+                    <div class="container-fluid d-flex justify-content-center">
+                        <div *ngIf="this.signUpForm.get('name')?.touched && this.signUpForm.get('name')?.errors?.['required']"
+                            class="alert alert-danger row col-12 p-2">
+                            Please enter your first name.
+                        </div>
+                    </div>
+
+                    <!-- surname input -->
+                    <div class="container-fluid d-flex justify-content-center">
+                        <div class="form-group mb-4 row col-12">
+                            <input type="surname" class="form-control" id="surnameInput" formControlName="surname"
+                                placeholder="Surname">
+                        </div>
+                    </div>
+
+                     <!-- Required alert message -->
+                     <div class="container-fluid d-flex justify-content-center">
+                        <div *ngIf="this.signUpForm.get('surname')?.touched && this.signUpForm.get('surname')?.errors?.['required']"
+                            class="alert alert-danger row col-12 p-2">
+                            Please enter your last name.
+                        </div>
+                    </div>
+
                     <!-- email input -->
                     <div class="container-fluid d-flex justify-content-center">
                         <div class="form-group mb-4 row col-12">
