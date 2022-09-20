@@ -35,6 +35,8 @@ export class UserService {
 
   public checkIfUserExists(user: IUser): boolean {
     let checks = 0
+    // https://itelisoft.com/como-utilizar-el-localstorage-en-angula/
+    this.users = JSON.parse(localStorage.getItem('users')!);
     this.users.forEach(data => {
       if (user.email === data.email && user.password === data.password) {
         checks++
@@ -57,6 +59,8 @@ export class UserService {
 
   public addUser(user: IUser) {
     let emailExists: boolean = false;
+    // https://itelisoft.com/como-utilizar-el-localstorage-en-angula/
+    this.users = JSON.parse(localStorage.getItem('users')!);
     this.users.forEach(item => {
       if (item.email === user.email) {
         emailExists = true;
@@ -64,6 +68,7 @@ export class UserService {
     })
     if (emailExists === false) {
       this.users.push(user);
+      window.localStorage.setItem('users', JSON.stringify(this.users));
       this.toastr.success(`Welcome ${user.email}!`, '', {
         timeOut: 5000, positionClass: 'toast-top-center'
       });
@@ -79,3 +84,5 @@ export class UserService {
     }
   }
 }
+
+
