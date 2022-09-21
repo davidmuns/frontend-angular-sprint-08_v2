@@ -37,11 +37,14 @@ export class UserService {
     let checks = 0
     // https://itelisoft.com/como-utilizar-el-localstorage-en-angula/
     this.users = JSON.parse(localStorage.getItem('users')!);
-    this.users.forEach(data => {
-      if (user.email === data.email && user.password === data.password) {
-        checks++
-      }
-    })
+    if(this.users != null){
+      this.users.forEach(data => {
+        if (user.email === data.email && user.password === data.password) {
+          checks++
+        }
+      })
+    }
+
     this.userExist = checks != 0 ? true : false;
     if (this.userExist === false) {
       this.toastr.error('We do not recognize the user name or password. Try again or create an account.', '', {
