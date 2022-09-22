@@ -26,10 +26,6 @@ export class LoginFormComponent implements OnInit {
     private router: Router
   ) {
     // Reactive form
-    // this.loginForm = this.formBuilder.group({
-    //   email: ['', [Validators.required, Validators.email]],
-    //   password: ['', Validators.required]
-    // })
     this.loginForm = this.formBuilder.group({
       nombreUsuario: ['', Validators.required],
       password: ['', Validators.required]
@@ -46,16 +42,16 @@ export class LoginFormComponent implements OnInit {
   }
 
   public onSubmit() {
-    // const user: IUser = this.loginForm.value;
     const loginUsuario: LoginUsuario = this.loginForm.value;
-    // const userExists = this.userService.checkIfUserExists(user);
-
     this.userService.setLogin(loginUsuario).subscribe(
       data => {
         this.tokenService.setToken(data.token);
         this.toastr.success(`Welcome again ${loginUsuario.nombreUsuario}!`, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
+        this.loginForm.reset();
+        this.closebutton.nativeElement.click();
+        console.log(this.userService.getIsUserValidated());
         // this.router.navigate(['/']);
       },
       err => {
@@ -63,18 +59,9 @@ export class LoginFormComponent implements OnInit {
         this.toastr.error(this.errorMsj, '', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-
+        this.userService.setIsUserValidated(false);
       }
+      
     );
-
-
-
-    // Closing modal window and reseting form if user exists by pressing button submit (continue)
-    // if (userExists) {
-    //   this.loginForm.reset();
-    //   this.closebutton.nativeElement.click();
-    // } else {
-    //   this.loginForm.reset();
-    // }
   }
 }
