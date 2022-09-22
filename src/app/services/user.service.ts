@@ -14,18 +14,18 @@ const AUTH_URL = environment.AUTH_URL;
   providedIn: 'root'
 })
 export class UserService {
-  private users: IUser[];
-  private userExist: boolean;
-  private isUserValidated: boolean;
+  // private users: IUser[];
+  private userExist!: boolean;
+  private isUserValidated!: boolean;
   private user!: IUser;
 
   constructor(
     private toastr: ToastrService,
     private httpClient: HttpClient
   ) {
-    this.users = [];
-    this.userExist = false;
-    this.isUserValidated = false;
+    // this.users = [];
+    // this.userExist = false;
+    // this.isUserValidated = false;
   }
 
   public getUser(): IUser {
@@ -36,11 +36,15 @@ export class UserService {
     return this.userExist;
   }
 
+  public setUserExist(condition: boolean): void {
+    this.userExist = condition;
+  }
+
   public getIsUserValidated(): boolean {
     return this.isUserValidated;
   }
 
-  public setIsUserValidated(condition: boolean) {
+  public setIsUserValidated(condition: boolean): void {
     this.isUserValidated = condition;
   }
 
@@ -49,70 +53,68 @@ export class UserService {
   }
 
   public setLogin(loginUsuario: LoginUsuario): Observable<JwtDto> {
-
     return this.httpClient.post<JwtDto>(AUTH_URL + 'login', loginUsuario);
   }
 
-  public checkIfUserExists(user: IUser): boolean {
-    let checks = 0
-    // https://itelisoft.com/como-utilizar-el-localstorage-en-angula/
-    this.users = JSON.parse(localStorage.getItem('users')!);
-    if (this.users != null) {
-      this.users.forEach(data => {
-        if (user.email === data.email && user.password === data.password) {
-          checks++
-        }
-      })
-    }
+   // https://itelisoft.com/como-utilizar-el-localstorage-en-angula/
+  // public checkIfUserExists(user: IUser): boolean {
+  //   let checks = 0
 
-    this.userExist = checks != 0 ? true : false;
-    if (this.userExist === false) {
-      this.toastr.error('We do not recognize the user name or password. Try again or create an account.', '', {
-        timeOut: 5000, positionClass: 'toast-top-center'
-      });
-    } else {
-      this.toastr.success(`Welcome again ${user.email}!`, '', {
-        timeOut: 5000, positionClass: 'toast-top-center'
-      });
-      this.user = user;
-      this.isUserValidated = true;
-    }
-    return this.userExist;
-  }
+  //   this.users = JSON.parse(localStorage.getItem('users')!);
+  //   if (this.users != null) {
+  //     this.users.forEach(data => {
+  //       if (user.email === data.email && user.password === data.password) {
+  //         checks++
+  //       }
+  //     })
+  //   }
 
-  public addUser(user: IUser) {
-    let emailExists: boolean = false;
+  //   this.userExist = checks != 0 ? true : false;
+  //   if (this.userExist === false) {
+  //     this.toastr.error('We do not recognize the user name or password. Try again or create an account.', '', {
+  //       timeOut: 5000, positionClass: 'toast-top-center'
+  //     });
+  //   } else {
+  //     this.toastr.success(`Welcome again ${user.email}!`, '', {
+  //       timeOut: 5000, positionClass: 'toast-top-center'
+  //     });
+  //     this.user = user;
+  //     this.isUserValidated = true;
+  //   }
+  //   return this.userExist;
+  // }
 
-    // https://itelisoft.com/como-utilizar-el-localstorage-en-angula/
+   // https://itelisoft.com/como-utilizar-el-localstorage-en-angula/
+  // public addUser(user: IUser) {
+  //   let emailExists: boolean = false;
+  //   this.users = JSON.parse(localStorage.getItem('users')!);
+  //   if (this.users != null) {
+  //     this.users.forEach(item => {
+  //       if (item.email === user.email) {
+  //         emailExists = true;
+  //       }
+  //     });
+  //   } else {
+  //     this.users = [];
+  //   }
 
-    this.users = JSON.parse(localStorage.getItem('users')!);
-    if (this.users != null) {
-      this.users.forEach(item => {
-        if (item.email === user.email) {
-          emailExists = true;
-        }
-      });
-    } else {
-      this.users = [];
-    }
-
-    if (emailExists === false) {
-      this.users.push(user);
-      window.localStorage.setItem('users', JSON.stringify(this.users));
-      this.toastr.success(`Welcome ${user.email}!`, '', {
-        timeOut: 5000, positionClass: 'toast-top-center'
-      });
-      this.userExist = false;
-      this.isUserValidated = true;
-      this.user = user;
-    } else {
-      this.toastr.error(`email ${user.email} already exists`, '', {
-        timeOut: 5000, positionClass: 'toast-top-center'
-      });
-      this.userExist = true;
-      this.isUserValidated = false;
-    }
-  }
+  //   if (emailExists === false) {
+  //     this.users.push(user);
+  //     window.localStorage.setItem('users', JSON.stringify(this.users));
+  //     this.toastr.success(`Welcome ${user.email}!`, '', {
+  //       timeOut: 5000, positionClass: 'toast-top-center'
+  //     });
+  //     this.userExist = false;
+  //     this.isUserValidated = true;
+  //     this.user = user;
+  //   } else {
+  //     this.toastr.error(`email ${user.email} already exists`, '', {
+  //       timeOut: 5000, positionClass: 'toast-top-center'
+  //     });
+  //     this.userExist = true;
+  //     this.isUserValidated = false;
+  //   }
+  // }
 }
 
 

@@ -45,7 +45,6 @@ export class SignUpFormComponent implements OnInit {
 
   public onSubmit() {
     const newUser = this.signUpForm.value;
-    console.log(newUser);
     // this.userService.addUser(newUser);
 
     this.userService.setUsuario(newUser).subscribe(
@@ -53,21 +52,29 @@ export class SignUpFormComponent implements OnInit {
         this.toastr.success(`User ${newUser.nombre} created`, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
+        this.signUpForm.reset();
+        this.closebutton.nativeElement.click();
+        this.userService.setIsUserValidated(true);
+
         // this.router.navigate(['/login']);
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
+        this.userService.setIsUserValidated(false);
+        this.signUpForm.reset();
         // this.errorMsj = err.error.mensaje;
       });
+      console.log(this.userService.getIsUserValidated());
+
 
     // Closing modal window and reseting form if user exists by pressing button submit (create account)
-    if (this.userService.getUserExist() === false) {
-      this.signUpForm.reset();
-      this.closebutton.nativeElement.click();
-    } else {
-      this.signUpForm.reset();
-    }
+    // if (this.userService.getUserExist() === false) {
+    //   this.signUpForm.reset();
+    //   this.closebutton.nativeElement.click();
+    // } else {
+    //   this.signUpForm.reset();
+    // }
   }
 }
