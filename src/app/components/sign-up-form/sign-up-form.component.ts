@@ -1,6 +1,7 @@
 import { UserService } from './../../services/user.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -8,16 +9,25 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./sign-up-form.component.css']
 })
 export class SignUpFormComponent implements OnInit {
-  @ViewChild('closebutton') 
+  @ViewChild('closebutton')
   closebutton!: ElementRef;
-  
+
   signUpForm: FormGroup;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+  constructor(private userService: UserService,
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService
+  ) {
     // Reactive form
+    // this.signUpForm = this.formBuilder.group({
+    //   name: ['', Validators.required],
+    //   surname: ['', Validators.required],
+    //   email: ['', [Validators.required, Validators.email]],
+    //   password: ['', Validators.required]
+    // })
     this.signUpForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      surname: ['', Validators.required],
+      nombre: ['', Validators.required],
+      nombreUsuario: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     })
@@ -28,14 +38,29 @@ export class SignUpFormComponent implements OnInit {
     this.signUpForm.reset();
   }
 
-  public onClose(){
+  public onClose() {
     this.signUpForm.reset();
   }
 
 
   public onSubmit() {
     const newUser = this.signUpForm.value;
-    this.userService.addUser(newUser);
+    console.log(newUser);
+    // this.userService.addUser(newUser);
+
+    this.userService.setUsuario(newUser).subscribe(
+      data => {
+        this.toastr.success(`User ${newUser.nombre} created`, 'OK', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        // this.router.navigate(['/login']);
+      },
+      err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        // this.errorMsj = err.error.mensaje;
+      });
 
     // Closing modal window and reseting form if user exists by pressing button submit (create account)
     if (this.userService.getUserExist() === false) {

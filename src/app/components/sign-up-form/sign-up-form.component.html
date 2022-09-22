@@ -1,17 +1,20 @@
-<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <!-- modal header-->
             <div class="modal-header d-flex justify-content-end p-0" style="border: none;">
-                <button type="button" class="button-close" #closebutton data-bs-dismiss="modal" (click)="onClose()">X</button>
+                <button type="button" class="button-close" #closebutton data-bs-dismiss="modal"
+                    (click)="onClose()">X</button>
             </div>
             <!-- modal body -->
             <div class="modal-body">
 
                 <!-- logo star wars -->
                 <div class="mb-4" style="text-align: center;">
-                    <img src="../../../assets/star-wars_disney-logo-removebg-preview.png" alt="" height="70%" width="70%">
+                    <img src="../../../assets/star-wars_disney-logo-removebg-preview.png" alt="" height="70%"
+                        width="70%">
                 </div>
 
                 <div class="text-center title mb-3">CREATE YOUR ACCOUNT</div>
@@ -20,34 +23,62 @@
                 <form [formGroup]="this.signUpForm" (ngSubmit)="onSubmit()">
 
                     <!-- name input -->
-                    <div class="container-fluid d-flex justify-content-center">
+                    <!-- <div class="container-fluid d-flex justify-content-center">
                         <div class="form-group mb-4 row col-12">
                             <input type="name" class="form-control" id="nameInput" formControlName="name"
                                 placeholder="Name">
                         </div>
+                    </div> -->
+
+                    <div class="container-fluid d-flex justify-content-center">
+                        <div class="form-group mb-4 row col-12">
+                            <input type="nombre" class="form-control" id="nombreInput" formControlName="nombre"
+                                placeholder="Nombre">
+                        </div>
                     </div>
 
                     <!-- Required alert message -->
-                    <div class="container-fluid d-flex justify-content-center">
+                    <!-- <div class="container-fluid d-flex justify-content-center">
                         <div *ngIf="this.signUpForm.get('name')?.touched && this.signUpForm.get('name')?.errors?.['required']"
+                            class="alert alert-danger row col-12 p-2">
+                            Please enter your first name.
+                        </div>
+                    </div> -->
+
+                    <div class="container-fluid d-flex justify-content-center">
+                        <div *ngIf="this.signUpForm.get('nombre')?.touched && this.signUpForm.get('nombre')?.errors?.['required']"
                             class="alert alert-danger row col-12 p-2">
                             Please enter your first name.
                         </div>
                     </div>
 
                     <!-- surname input -->
-                    <div class="container-fluid d-flex justify-content-center">
+                    <!-- <div class="container-fluid d-flex justify-content-center">
                         <div class="form-group mb-4 row col-12">
                             <input type="surname" class="form-control" id="surnameInput" formControlName="surname"
                                 placeholder="Surname">
                         </div>
+                    </div> -->
+
+                    <div class="container-fluid d-flex justify-content-center">
+                        <div class="form-group mb-4 row col-12">
+                            <input type="nombreUsuario" class="form-control" id="nombreUsuarioInput"
+                                formControlName="nombreUsuario" placeholder="username">
+                        </div>
                     </div>
 
-                     <!-- Required alert message -->
-                     <div class="container-fluid d-flex justify-content-center">
+                    <!-- Required alert message -->
+                    <!-- <div class="container-fluid d-flex justify-content-center">
                         <div *ngIf="this.signUpForm.get('surname')?.touched && this.signUpForm.get('surname')?.errors?.['required']"
                             class="alert alert-danger row col-12 p-2">
                             Please enter your last name.
+                        </div>
+                    </div> -->
+
+                    <div class="container-fluid d-flex justify-content-center">
+                        <div *ngIf="this.signUpForm.get('nombreUsuario')?.touched && this.signUpForm.get('nombreUsuario')?.errors?.['required']"
+                            class="alert alert-danger row col-12 p-2">
+                            Please enter your username.
                         </div>
                     </div>
 

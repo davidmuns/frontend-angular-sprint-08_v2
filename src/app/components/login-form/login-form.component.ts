@@ -2,6 +2,10 @@ import { IUser } from './../../models/iuser';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { LoginUsuario } from './../../models/ILoginUsuario';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-login-form',
@@ -12,11 +16,22 @@ export class LoginFormComponent implements OnInit {
   // https://www.youtube.com/watch?v=AyuIaJTqBLs
   @ViewChild('closebutton') closebutton: any;
   loginForm: FormGroup;
- 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+  errorMsj!: string;
+
+  constructor(
+    private tokenService: TokenService,
+    private userService: UserService,
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService,
+    private router: Router
+  ) {
     // Reactive form
+    // this.loginForm = this.formBuilder.group({
+    //   email: ['', [Validators.required, Validators.email]],
+    //   password: ['', Validators.required]
+    // })
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      nombreUsuario: ['', Validators.required],
       password: ['', Validators.required]
     })
     this.loginForm.reset();
@@ -26,20 +41,40 @@ export class LoginFormComponent implements OnInit {
     this.loginForm.reset();
   }
 
-  public onClose(){
+  public onClose() {
     this.loginForm.reset();
   }
 
   public onSubmit() {
-    const user: IUser = this.loginForm.value;
-    const userExists = this.userService.checkIfUserExists(user);
+    // const user: IUser = this.loginForm.value;
+    const loginUsuario: LoginUsuario = this.loginForm.value;
+    // const userExists = this.userService.checkIfUserExists(user);
+
+    this.userService.setLogin(loginUsuario).subscribe(
+      data => {
+        this.tokenService.setToken(data.token);
+        this.toastr.success(`Welcome again ${loginUsuario.nombreUsuario}!`, 'OK', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        // this.router.navigate(['/']);
+      },
+      err => {
+        this.errorMsj = err.error.message;
+        this.toastr.error(this.errorMsj, '', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+
+      }
+    );
+
+
 
     // Closing modal window and reseting form if user exists by pressing button submit (continue)
-    if (userExists) {
-      this.loginForm.reset();
-      this.closebutton.nativeElement.click();
-    } else {
-      this.loginForm.reset();
-    }
+    // if (userExists) {
+    //   this.loginForm.reset();
+    //   this.closebutton.nativeElement.click();
+    // } else {
+    //   this.loginForm.reset();
+    // }
   }
 }

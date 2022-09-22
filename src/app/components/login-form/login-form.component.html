@@ -1,76 +1,89 @@
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- modal header -->
-            <div class="modal-header d-flex justify-content-end p-0" style="border: none;">
-                <button type="button" class="button-close" #closebutton data-bs-dismiss="modal" (click)=" onClose()">X</button>
-            </div>
-            <div class="modal-body">
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true"
+  data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- modal header -->
+      <div class="modal-header d-flex justify-content-end p-0" style="border: none;">
+        <button type="button" class="button-close" #closebutton data-bs-dismiss="modal" (click)=" onClose()">X</button>
+      </div>
+      <div class="modal-body">
 
-                <!-- logo star wars -->
-                <div class="mb-4" style="text-align: center;">
-                    <img src="../../../assets/star-wars_disney-logo-removebg-preview.png" alt="" height="70%"
-                        width="70%">
-                </div>
-                <div class="text-center title mb-3">ENTER YOUR EMAIL AND PASSWORD</div>
+        <!-- logo star wars -->
+        <div class="mb-4" style="text-align: center;">
+          <img src="../../../assets/star-wars_disney-logo-removebg-preview.png" alt="" height="70%" width="70%">
+        </div>
+        <div class="text-center title mb-3">ENTER YOUR EMAIL OR USERNAME AND PASSWORD</div>
 
-                <!-- LOGIN FORM -->
-                <form [formGroup]="this.loginForm" (ngSubmit)="onSubmit()">
+        <!-- LOGIN FORM -->
+        <form [formGroup]="this.loginForm" (ngSubmit)="onSubmit()">
 
-                    <!-- email input -->
-                    <div class="container-fluid d-flex justify-content-center mb-4">
+          <!-- email input -->
+          <!-- <div class="container-fluid d-flex justify-content-center mb-4">
                         <div class="form-group row col-12">
                             <input type="email" class="form-control" id="inputEmail" formControlName="email"
                                 placeholder="email address">
                         </div>
-                    </div>
+                    </div> -->
+          <div class="container-fluid d-flex justify-content-center mb-4">
+            <div class="form-group row col-12">
+              <input type="nombreUsuario" class="form-control" id="inputNombreUsuario" formControlName="nombreUsuario"
+                placeholder="email address or username">
+            </div>
+          </div>
 
-                    <!-- Invalid email alert message -->
-                    <div class="container-fluid d-flex justify-content-center">
+          <!-- Required alert message -->
+          <div class="container-fluid d-flex justify-content-center">
+            <div
+              *ngIf="this.loginForm.get('nombreUsuario')?.touched && this.loginForm.get('nombreUsuario')?.errors?.['required']"
+              class="alert alert-danger row col-12 p-2">
+              This field is required.
+            </div>
+          </div>
+
+          <!-- Invalid email alert message -->
+          <!-- <div class="container-fluid d-flex justify-content-center">
                         <div *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.errors?.['email']"
                             class="alert alert-danger row col-12 p-2 text-center">
                             Invalid email format.
                         </div>
-                    </div>
+                    </div> -->
 
-                    <!-- password input -->
-                    <div class="container-fluid d-flex justify-content-center mb-4">
-                        <div class="form-group row col-12">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="password"
-                                formControlName="password">
-                        </div>
-                    </div>
-
-                    <!-- Required alert message -->
-                    <div class="container-fluid d-flex justify-content-center">
-                        <div *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.errors?.['required']"
-                            class="alert alert-danger row col-12 p-2">
-                            This field is required.
-                        </div>
-                    </div>
-
-                    <!-- submit button -->
-                    <div class="container-fluid d-flex justify-content-center mb-3">
-                        <div class="form-group row col-12">
-                            <input type="submit" class="btn btn-dark" value="continue"
-                                [disabled]="this.loginForm.invalid">
-                        </div>
-                    </div>
-
-                    <div class="container-fluid d-flex justify-content-center mb-1">
-                        <p style="color: #edd700;font-size: 17px;">or</p>
-                    </div>
-
-                    <!-- create account button (toggle between modals) -->
-                    <div class="container-fluid d-flex justify-content-center">
-                        <div class="form-group row col-12">
-                            <input type="button" class="btn btn-black" data-bs-target="#signUpModal"
-                                data-bs-toggle="modal" data-bs-dismiss="modal" style="color: #edd700;"
-                                value="Create account">
-                        </div>
-                    </div>
-                </form>
+          <!-- password input -->
+          <div class="container-fluid d-flex justify-content-center mb-4">
+            <div class="form-group row col-12">
+              <input type="password" class="form-control" id="inputPassword" placeholder="password"
+                formControlName="password">
             </div>
-        </div>
+          </div>
+
+          <!-- Required alert message -->
+          <div class="container-fluid d-flex justify-content-center">
+            <div *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.errors?.['required']"
+              class="alert alert-danger row col-12 p-2">
+              This field is required.
+            </div>
+          </div>
+
+          <!-- submit button -->
+          <div class="container-fluid d-flex justify-content-center mb-3">
+            <div class="form-group row col-12">
+              <input type="submit" class="btn btn-dark" value="continue" [disabled]="this.loginForm.invalid">
+            </div>
+          </div>
+
+          <div class="container-fluid d-flex justify-content-center mb-1">
+            <p style="color: #edd700;font-size: 17px;">or</p>
+          </div>
+
+          <!-- create account button (toggle between modals) -->
+          <div class="container-fluid d-flex justify-content-center">
+            <div class="form-group row col-12">
+              <input type="button" class="btn btn-black" data-bs-target="#signUpModal" data-bs-toggle="modal"
+                data-bs-dismiss="modal" style="color: #edd700;" value="Create account">
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
