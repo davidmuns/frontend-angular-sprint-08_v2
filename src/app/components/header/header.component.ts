@@ -1,5 +1,4 @@
 import { Router } from '@angular/router';
-import { IUser } from './../../models/iuser';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';

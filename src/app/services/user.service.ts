@@ -1,4 +1,3 @@
-import { IUser } from './../models/iuser';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';

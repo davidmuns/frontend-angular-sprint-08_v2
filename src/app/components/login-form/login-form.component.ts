@@ -1,4 +1,3 @@
-import { IUser } from './../../models/iuser';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
@@ -51,7 +50,6 @@ export class LoginFormComponent implements OnInit {
         });
         this.loginForm.reset();
         this.closebutton.nativeElement.click();
-        console.log(this.userService.getIsUserValidated());
         // this.router.navigate(['/']);
       },
       err => {
@@ -60,8 +58,7 @@ export class LoginFormComponent implements OnInit {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.userService.setIsUserValidated(false);
-      }
-      
+      }     
     );
   }
 }

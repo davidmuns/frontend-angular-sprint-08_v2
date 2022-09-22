@@ -17,13 +17,7 @@
         <!-- LOGIN FORM -->
         <form [formGroup]="this.loginForm" (ngSubmit)="onSubmit()">
 
-          <!-- email input -->
-          <!-- <div class="container-fluid d-flex justify-content-center mb-4">
-                        <div class="form-group row col-12">
-                            <input type="email" class="form-control" id="inputEmail" formControlName="email"
-                                placeholder="email address">
-                        </div>
-                    </div> -->
+          <!-- email or username input -->
           <div class="container-fluid d-flex justify-content-center mb-4">
             <div class="form-group row col-12">
               <input type="nombreUsuario" class="form-control" id="inputNombreUsuario" formControlName="nombreUsuario"
@@ -40,19 +34,12 @@
             </div>
           </div>
 
-          <!-- Invalid email alert message -->
-          <!-- <div class="container-fluid d-flex justify-content-center">
-                        <div *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.errors?.['email']"
-                            class="alert alert-danger row col-12 p-2 text-center">
-                            Invalid email format.
-                        </div>
-                    </div> -->
-
           <!-- password input -->
           <div class="container-fluid d-flex justify-content-center mb-4">
             <div class="form-group row col-12">
               <input type="password" class="form-control" id="inputPassword" placeholder="password"
                 formControlName="password">
+                <p style="color: #edd700; font-size: 15px;">Forgot your passport?</p>
             </div>
           </div>
 
@@ -69,8 +56,9 @@
             <div class="form-group row col-12">
               <input type="submit" class="btn btn-dark" value="continue" [disabled]="this.loginForm.invalid">
             </div>
+            
           </div>
-
+        
           <div class="container-fluid d-flex justify-content-center mb-1">
             <p style="color: #edd700;font-size: 17px;">or</p>
           </div>
