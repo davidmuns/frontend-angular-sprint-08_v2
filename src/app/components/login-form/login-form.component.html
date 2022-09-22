@@ -39,7 +39,10 @@
             <div class="form-group row col-12">
               <input type="password" class="form-control" id="inputPassword" placeholder="password"
                 formControlName="password">
-                <p style="color: #edd700; font-size: 15px;">Forgot your passport?</p>
+              <p style="color: #edd700; font-size: 15px;">
+                <a data-bs-target="#emailPasswordModal" data-bs-toggle="modal" data-bs-dismiss="modal">Forgot your passport?
+                </a>
+              </p>
             </div>
           </div>
 
@@ -56,9 +59,9 @@
             <div class="form-group row col-12">
               <input type="submit" class="btn btn-dark" value="continue" [disabled]="this.loginForm.invalid">
             </div>
-            
+
           </div>
-        
+
           <div class="container-fluid d-flex justify-content-center mb-1">
             <p style="color: #edd700;font-size: 17px;">or</p>
           </div>
@@ -75,3 +78,5 @@
     </div>
   </div>
 </div>
+
+<app-email-password></app-email-password>

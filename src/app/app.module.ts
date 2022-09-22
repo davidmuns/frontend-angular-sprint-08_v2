@@ -29,6 +29,7 @@ import { PilotDetailComponent } from './components/pilot-detail/pilot-detail.com
 // EXTERNAL
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { EmailPasswordComponent } from './components/email-password/email-password.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ToastrModule } from 'ngx-toastr';
     StarshipDetailComponent,
     StarshipListComponent,
     SliderSeriesComponent,
-    PilotDetailComponent
+    PilotDetailComponent,
+    EmailPasswordComponent
   ],
   imports: [
     BrowserModule,
