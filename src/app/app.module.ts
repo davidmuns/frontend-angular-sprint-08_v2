@@ -26,10 +26,14 @@ import { StarshipListComponent } from './components/starship-list/starship-list.
 import { SliderSeriesComponent } from './components/slider-series/slider-series.component';
 import { PilotDetailComponent } from './components/pilot-detail/pilot-detail.component';
 
+
 // EXTERNAL
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { EmailPasswordFormComponent } from './components/email-password-form/email-password-form.component';
+import { EmailPasswordService } from './services/email-password.service';
+import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
+
 
 
 @NgModule({
@@ -45,7 +49,9 @@ import { EmailPasswordFormComponent } from './components/email-password-form/ema
     StarshipListComponent,
     SliderSeriesComponent,
     PilotDetailComponent,
-    EmailPasswordFormComponent
+    EmailPasswordFormComponent,
+    ResetPasswordFormComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,7 @@ import { EmailPasswordFormComponent } from './components/email-password-form/ema
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [StarshipService, PilotService , UserService],
+  providers: [StarshipService, PilotService , UserService, EmailPasswordService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

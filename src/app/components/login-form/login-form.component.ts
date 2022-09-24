@@ -57,6 +57,7 @@ export class LoginFormComponent implements OnInit {
         this.toastr.error(this.errorMsj, '', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
+        this.loginForm.reset();
         this.userService.setIsUserValidated(false);
       }     
     );
