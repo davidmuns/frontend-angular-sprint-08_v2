@@ -2,11 +2,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-email-password',
-  templateUrl: './email-password.component.html',
-  styleUrls: ['./email-password.component.css']
+  selector: 'app-email-password-form',
+  templateUrl: './email-password-form.component.html',
+  styleUrls: ['./email-password-form.component.css']
 })
-export class EmailPasswordComponent implements OnInit {
+export class EmailPasswordFormComponent implements OnInit {
   @ViewChild('closebutton')
   closebutton!: ElementRef;
   email!: string;

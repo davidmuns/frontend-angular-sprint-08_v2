@@ -1,4 +1,4 @@
-import { EmailPasswordComponent } from './components/email-password/email-password.component';
+import { EmailPasswordFormComponent } from './components/email-password-form/email-password-form.component';
 import { StarshipDetailComponent } from './components/starship-detail/starship-detail.component';
 import { StarshipListComponent } from './components/starship-list/starship-list.component';
 import { UserGuard } from './user.guard';
