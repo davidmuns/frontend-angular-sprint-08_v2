@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
       timeOut: 5000, positionClass: 'toast-top-center'
     });
     this.userService.setIsUserValidated(false);
+    window.localStorage.clear();
     this.router.navigate(['']);
   }
 }

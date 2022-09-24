@@ -71,8 +71,6 @@ export class StarshipListComponent implements OnInit {
       this.pilotService.subscribeTrigger.emit(this.urlPilots);
     });
     this.router.navigate(['starship']);
-    console.log(this.starship);
-    console.log(this.urlPilots);
   }
 
   public getStarship() {

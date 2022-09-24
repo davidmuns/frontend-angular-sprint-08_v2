@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./starship-detail.component.css']
 })
 export class StarshipDetailComponent implements OnInit {
-  starship!: IStarship;
+  starship!: IStarship | null | undefined;
   id!: string;
   img: string = '';
   defImg: string = '';

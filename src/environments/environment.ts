@@ -6,7 +6,7 @@ export const environment = {
   production: true,
   baseApi: 'https://swapi.dev/api/',
   pagedUrl: 'https://swapi.dev/api/starships/?page=',
-  AUTH_URL: 'http://localhost:8080/auth/'
+  AUTH_URL: 'https://davidmuns-login.herokuapp.com/auth/'
 };
 
 
