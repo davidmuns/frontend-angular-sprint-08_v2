@@ -39,4 +39,14 @@ span {
     color: gray;
 }
 
+section {
+    margin-top: 200px;
+}
+
+@media screen and (max-width: 768px) {
+    section{
+        margin-top: 300px;
+    }
+}
+
 
