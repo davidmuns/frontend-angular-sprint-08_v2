@@ -25,14 +25,15 @@ import { StarshipDetailComponent } from './components/starship-detail/starship-d
 import { StarshipListComponent } from './components/starship-list/starship-list.component';
 import { SliderSeriesComponent } from './components/slider-series/slider-series.component';
 import { PilotDetailComponent } from './components/pilot-detail/pilot-detail.component';
+import { EmailPasswordFormComponent } from './components/email-password-form/email-password-form.component';
+import { EmailPasswordService } from './services/email-password.service';
+import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
 
 
 // EXTERNAL
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { EmailPasswordFormComponent } from './components/email-password-form/email-password-form.component';
-import { EmailPasswordService } from './services/email-password.service';
-import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
+
 
 
 
@@ -51,7 +52,6 @@ import { ResetPasswordFormComponent } from './components/reset-password-form/res
     PilotDetailComponent,
     EmailPasswordFormComponent,
     ResetPasswordFormComponent
-  
   ],
   imports: [
     BrowserModule,

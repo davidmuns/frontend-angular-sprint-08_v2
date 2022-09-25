@@ -36,17 +36,16 @@ export class ResetPasswordFormComponent implements OnInit {
         this.toastr.success(data.mensaje, 'OK', {
           timeOut: 5000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/login']);
       },
       err => {
-        this.toastr.error(err.error.mensaje, '', {
+        this.toastr.success(err.error.mensaje, '', {
           timeOut: 3000, positionClass: 'toast-top-center'        
         });
         // window.location.reload();
         //console.log(this.resetPasswordDto);  
       }
     );
-
+    this.router.navigate(['']);
   }
 
 }
