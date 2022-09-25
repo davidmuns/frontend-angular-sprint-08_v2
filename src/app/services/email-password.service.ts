@@ -19,7 +19,7 @@ export class EmailPasswordService {
     return this.httpClient.post<any>(EMAIL_PASSWORD_URL + 'send', emailDto);
   }
 
-  public resetPassword(resetPasswordDto: ResetPasswordDto): Observable<Mensaje> {
+  public resetPassword(resetPasswordDto: ResetPasswordDto): Observable<Mensaje> { 
     return this.httpClient.post<Mensaje>(EMAIL_PASSWORD_URL + 'reset', resetPasswordDto);
   }
 }

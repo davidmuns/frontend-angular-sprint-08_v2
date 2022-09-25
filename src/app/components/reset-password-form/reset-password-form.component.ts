@@ -1,10 +1,9 @@
-
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ResolvedReflectiveFactory } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ResetPasswordDto } from 'src/app/models/reset-password-dto';
 import { EmailPasswordService } from 'src/app/services/email-password.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reset-password',
@@ -17,18 +16,29 @@ export class ResetPasswordFormComponent implements OnInit {
   confirmPassword!: string;
   resetPasswordDto!: ResetPasswordDto;
   tokenPassword!: string;
+  loginForm!: FormGroup;
 
   constructor(
     private emailPasswordService: EmailPasswordService,
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
+    private formBuilder: FormBuilder,
     private router: Router
-  ) { }
+  ) { 
+
+    // Reactive form
+    this.loginForm = this.formBuilder.group({
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
+    })
+
+  }
 
   ngOnInit(): void {
   }
   onResetPassword(){
     this.tokenPassword = this.activatedRoute.snapshot.paramMap.get('tokenPassword') as string;
+    
     this.resetPasswordDto = new ResetPasswordDto(this.newPassword, this.confirmPassword, this.tokenPassword);
     
     this.emailPasswordService.resetPassword(this.resetPasswordDto).subscribe(
