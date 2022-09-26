@@ -16,6 +16,7 @@ export class EmailPasswordFormComponent implements OnInit {
   openmodal!: ElementRef;
   email!: string;
   passwordEmailForm!: FormGroup;
+  msg!: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,10 +39,7 @@ export class EmailPasswordFormComponent implements OnInit {
     this.emailPasswordService.sendEmail(this.passwordEmailForm.value).subscribe(
       {
       next: data => {
-        // this.toastr.success(data.mensaje, 'OK', {
-        //   timeOut: 5000, positionClass: 'toast-top-center'
-        // });
-        // this.router.navigate(['/']);
+        this.msg = data.mensaje;
         this.passwordEmailForm.reset();
         this.closebutton.nativeElement.click();
         this.openmodal.nativeElement.click();

@@ -45,7 +45,7 @@ export class LoginFormComponent implements OnInit {
     this.userService.setLogin(loginUsuario).subscribe(
       data => {
         this.tokenService.setToken(data.token);
-        this.toastr.success(`Welcome again ${loginUsuario.nombreUsuario}!`, 'OK', {
+        this.toastr.success(`Welcome again ${loginUsuario.nombreUsuario}!`, '', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.loginForm.reset();

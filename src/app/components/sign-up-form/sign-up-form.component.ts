@@ -49,7 +49,7 @@ export class SignUpFormComponent implements OnInit {
 
     this.userService.setUsuario(newUser).subscribe(
       data => {
-        this.toastr.success(`User ${newUser.nombre} created`, 'OK', {
+        this.toastr.success(`User ${newUser.nombre} created`, '', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.signUpForm.reset();
