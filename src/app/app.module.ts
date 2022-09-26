@@ -29,12 +29,9 @@ import { EmailPasswordFormComponent } from './components/email-password-form/ema
 import { EmailPasswordService } from './services/email-password.service';
 import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
 
-
 // EXTERNAL
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
-
 
 
 @NgModule({

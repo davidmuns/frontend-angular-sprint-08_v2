@@ -35,10 +35,15 @@ export class ResetPasswordFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
   
   onSubmit() {
-    this.tokenPassword = this.activatedRoute.snapshot.paramMap.get('tokenPassword') as string;
+    // https://medium.com/@seraya/netlify-redirect-rules-for-angular-6-apps-d9f27ad40449
+    // this.tokenPassword = this.activatedRoute.snapshot.paramMap.get('tokenPassword') as string;
+    this.activatedRoute.paramMap.subscribe( paramMap => {
+      this.tokenPassword = paramMap.get('tokenPassword')!;
+    })
 
     this.resetPasswordDto = new ResetPasswordDto(this.newPassword, this.confirmPassword, this.tokenPassword);
 
