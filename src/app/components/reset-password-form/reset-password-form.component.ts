@@ -24,7 +24,7 @@ export class ResetPasswordFormComponent implements OnInit {
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) { 
+  ) {
 
     // Reactive form
     this.loginForm = this.formBuilder.group({
@@ -36,26 +36,27 @@ export class ResetPasswordFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onResetPassword(){
+  
+  onSubmit() {
     this.tokenPassword = this.activatedRoute.snapshot.paramMap.get('tokenPassword') as string;
-    
+
     this.resetPasswordDto = new ResetPasswordDto(this.newPassword, this.confirmPassword, this.tokenPassword);
-    
+
     this.emailPasswordService.resetPassword(this.resetPasswordDto).subscribe(
-      data => {
-        this.toastr.success(data.mensaje, 'OK', {
-          timeOut: 5000, positionClass: 'toast-top-center'
-        });
-      },
-      err => {
-        this.toastr.success(err.error.mensaje, '', {
-          timeOut: 3000, positionClass: 'toast-top-center'        
-        });
-        // window.location.reload();
-        //console.log(this.resetPasswordDto);  
-      }
-    );
-    this.router.navigate(['']);
+      {
+        next: data => {
+          this.toastr.success(data.mensaje + ' Redirecting to home...', '', {
+            timeOut: 3000, positionClass: 'toast-top-center'
+          });
+          setTimeout(() => { this.router.navigate(['']); }, 3000);
+        },
+        error: err => {
+          this.toastr.error(err.error.mensaje, '', {
+            timeOut: 3000, positionClass: 'toast-top-center'
+          });
+          setTimeout(() => {  window.location.reload(); }, 3000);
+        }
+      });
   }
 
 }
