@@ -13,6 +13,7 @@ export class StarshipDetailComponent implements OnInit {
   id!: string;
   img: string = '';
   defImg: string = '';
+  showPilots: boolean = false;
   
   constructor(private starshipService: StarshipService, private readonly router: Router) {
     this.id = this.starshipService.getStarshipId();
@@ -28,6 +29,14 @@ export class StarshipDetailComponent implements OnInit {
 
   public gotoStarships() {
     this.router.navigate(['starship/all']);
+  }
+
+  onShowPilots(){
+    this.showPilots = true;
+  }
+
+  onHidePilots(){
+    this.showPilots = false;
   }
 
 

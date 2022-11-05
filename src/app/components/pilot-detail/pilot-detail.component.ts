@@ -18,6 +18,16 @@ export class PilotDetailComponent implements OnInit {
   defImg!: string;
 
   constructor(private pilotService: PilotService, private router: Router) {
+    // this.pilotService.subscribeTrigger.subscribe(data => {
+    //   if (data.length > 0) {
+    //     data.forEach((url: string) => {
+    //       this.getPilot(url);
+    //     });
+    //   }
+    // })
+  }
+
+  ngOnInit(): void {
     this.pilotService.subscribeTrigger.subscribe(data => {
       if (data.length > 0) {
         data.forEach((url: string) => {
@@ -25,13 +35,10 @@ export class PilotDetailComponent implements OnInit {
         });
       }
     })
-  }
-
-  ngOnInit(): void {
 
   }
 
-  getPilot(url: string): void {
+  private getPilot(url: string): void {
     this.pilotService.getPilot(url).subscribe(data => {
       this.pilot = data;
       this.pilotId = this.getPilotId(url);
@@ -41,7 +48,7 @@ export class PilotDetailComponent implements OnInit {
     })
   }
 
-  getPilotId(url: string): string {
+  private getPilotId(url: string): string {
     return this.pilotService.getPilotId(url);
   }
 

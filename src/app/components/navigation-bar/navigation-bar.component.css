@@ -3,6 +3,11 @@ nav{
     border-bottom: 1px solid dimgray;
 }
 
+/* .container-fluid {
+    position: fixed;
+    z-index: 2;
+} */
+
 p:hover{
     color:white;
 }

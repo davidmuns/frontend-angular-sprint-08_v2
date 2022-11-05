@@ -1,7 +1,7 @@
-<section class="pt-5" id="pilot-cards">
+<section id="pilot-cards">
     <h3 class="text-center mb-2">PILOTS [{{ this.pilots.length }}]</h3>
 
-    <div class="container px-4 px-lg-5">
+    <div class="container px-4 px-lg-5 animate__animated animate__zoomIn">
 
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
@@ -11,7 +11,7 @@
 
                     <img [src]="this.pilotImgs[i]" class="card-img-top"
                         onerror="this.src='../../../assets/default-img.jpg'" alt="starship-photo">
-                    
+
                     <div class="card-body p-4">
 
                         <h3 class="card-title">{{ pilot.name }}</h3>
@@ -32,14 +32,26 @@
                             </div>
                         </div>
 
-                    </div>                 
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row d-flex justify-content-center mb-5">
+        <!-- <div class="row d-flex justify-content-center mb-5">
             <a class="btn bg-outline-dark" style="color: #edd700;" (click)="gotoStarships()">
                 <i class="fa-solid fa-backward"></i> Back
             </a>
-        </div>
+        </div> -->
     </div>
 </section>
+<div class="mb-5" style="display: flex; justify-content: center">
+    <div>
+        <a class="btn bg-outline-dark" style="color: #edd700;" (click)="gotoStarships()">
+            <i class="fa-solid fa-backward"></i> Back
+        </a>
+    </div>
+    <!-- <div>
+      <a class="btn bg-outline-dark" style="color: #edd700;" (click)="onHidePilots()">
+        <i class="fa-solid fa-backward"></i> Hide
+      </a>
+    </div> -->
+</div>

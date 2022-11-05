@@ -9,7 +9,11 @@ h3 {
 
 .card-body {
     border-top: 3px solid rgb(249, 76, 105);
+    /* border-left: 1px solid rgb(118, 116, 116);
+    border-right: 1px solid rgb(118, 116, 116);
+    border-bottom: 1px solid rgb(118, 116, 116); */
 }
+
 
 p {
     color: white;
