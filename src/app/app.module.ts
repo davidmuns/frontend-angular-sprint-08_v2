@@ -32,6 +32,11 @@ import { ResetPasswordFormComponent } from './components/reset-password-form/res
 // EXTERNAL
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { FooterComponent } from './shared/footer/footer.component';
+import { FooterNavComponent } from './shared/footer-nav/footer-nav.component';
+import { SocialComponent } from './shared/social/social.component';
+
+
 
 
 @NgModule({
@@ -48,7 +53,11 @@ import { ToastrModule } from 'ngx-toastr';
     SliderSeriesComponent,
     PilotDetailComponent,
     EmailPasswordFormComponent,
-    ResetPasswordFormComponent
+    ResetPasswordFormComponent,
+    FooterComponent,
+    FooterNavComponent,
+    SocialComponent
+    
   ],
   imports: [
     BrowserModule,

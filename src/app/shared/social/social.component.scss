@@ -1,0 +1,35 @@
+.flex-row {
+    display       : flex;
+    flex-direction: row;
+}
+
+.flex-align-items-baseline {
+    align-items: baseline;
+}
+
+li {
+    list-style-type:none;
+}
+
+.fs-social-meta {
+    font-size: 1.22rem;
+}
+
+.fs-social-twitter {
+    font-size: 1.407rem;
+}
+
+.fs-social-youtube {
+    font-size: 1.47rem;
+}
+
+.fc-silver-off {
+    color             : #999999;
+    -webkit-transition: color 350ms;
+    transition        : color 350ms;
+
+    &:hover {
+        color: #FFFFFF;
+    }
+}
+

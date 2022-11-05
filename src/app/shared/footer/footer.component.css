@@ -1,0 +1,57 @@
+.footer {
+    height: 320px;
+    background-color: #000000;
+    background-image: url("../../../assets/vader.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.t-upper {
+    text-transform: uppercase;
+}
+
+
+.fs-footer {
+    font-size: 0.875rem;
+    color: #cccccc;
+}
+
+.flex-center-bottom {
+    justify-content: end;
+    align-items: center;
+}
+
+
+.fs-social-meta {
+    font-size: 1.22rem;
+}
+
+.fs-social-twitter {
+    font-size: 1.407rem;
+}
+
+.fs-social-youtube {
+    font-size: 1.47rem;
+}
+
+.f-regular {
+    font-weight: 400;
+}
+
+
+.fc-silver-light {
+    color: #cccccc;
+}
+
+
+
+
