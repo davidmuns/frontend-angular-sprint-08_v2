@@ -14,6 +14,10 @@ h3 {
     border-bottom: 1px solid rgb(118, 116, 116); */
 }
 
+.button-back {
+    margin-bottom: 50px;
+}
+
 
 p {
     color: white;
@@ -21,4 +25,10 @@ p {
 
 span {
     color: gray;
+}
+
+@media screen and (max-width: 768px) {
+    .button-back {
+        margin-bottom: 100px;
+    }
 }
