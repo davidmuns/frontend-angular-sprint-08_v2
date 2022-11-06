@@ -1,72 +1,103 @@
-/* header{
-    width: 100%;
-    height:120px;
-    display:flex;
-    flex-direction: row;
-    margin-bottom: 0px;
-} */
 
-/* .container-fluid {
-    position: fixed;
-    z-index: 2;
-} */
-.logoStarWars{
-    background-image: url(src/assets/star-wars-logo.png);
-    width:230px;
-    height: 100px;
-    background-size: cover;
-    margin: 12px auto
+
+.container-fluid {
+    /* position: fixed;
+    z-index: 2; */
+    display: flex; 
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+    align-self: center;
+    background-color: black;
 }
-.notLogged{
-    min-width:150px;
+
+img {
+    width: 75%;
+    height: auto;
+}
+.logo {
+    padding: 10px;
+    /* background-image: url(src/assets/star-wars-logo.png); */
+    /* background-image: url(src/assets/logo-starwars-mobil.jpg); */
+    /* width: 230px; */
+    /* height: 100px; */
+    /* background-size: cover; */
+    /* margin: 12px auto */
+   
+}
+
+.notLogged {
+    min-width: 150px;
     color: white;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
-.notLogged>a{
+.notLogged>a {
     color: darkgray;
-    margin-top: 70px;
+    /* margin-top: 70px; */
     cursor: pointer;
     font-weight: bold;
 }
 
-.notLogged>a:hover{
-    color:white;
+.notLogged>a:hover {
+    color: white;
 }
 
-span{
+span {
     color: darkgray;
     margin-top: 70px;
-    cursor:auto;
+    cursor: auto;
 }
 
-.logged{
-    min-width:150px;
+.logged {
+    min-width: 150px;
     color: white;
-    display:flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-.logged>a{
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    color:darkgray;
-    margin-top: 70px;
-    font-weight: bold;
+    text-decoration: none;
 }
 
-.logged>a:hover{
-    color:white;
+.logged>a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: darkgray;
+    /* margin-top: 70px; */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logged>a:hover {
+    color: white;
 }
 
 @media screen and (max-width: 767px) {
-    .notLogged{    
-        justify-content: center;        
+
+    img {
+        /* width: 35%;
+        height: 35%; */
     }
-    .logged{     
-        justify-content: center;      
+
+    .logoStarWars {
+        background-image: url(src/assets/logo-starwars-mobil.jpg);
     }
-  }
+    .logo {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+    .container-fluid {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .notLogged {
+        justify-content: center;
+    }
+
+    .logged {
+        justify-content: center;
+    }
+}
