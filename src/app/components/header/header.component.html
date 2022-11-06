@@ -1,41 +1,18 @@
-<!-- <div class="container-fluid bg-black">
-    <div class="row w-100">
-        <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4"></div>
-        <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 p-2">
-            <div class="logoStarWars"></div>
-        </div>
-        <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-            <div class="notLogged" *ngIf="this.userService.getIsUserValidated() == false; else logged">
-                <a data-bs-toggle="modal" data-bs-target="#loginModal">LOG IN &nbsp;</a>
-                <span>//&nbsp;&nbsp;</span>
-                <a data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</a>
-            </div>
-            <ng-template #logged>
-                <div class="logged" *ngIf="this.userService.getIsUserValidated()">
-                    <a style="text-decoration: none; color: darkgray; cursor: auto;">{{ this.userService.getUser().nombreUsuario }} &nbsp;</a>
-                    <span>//&nbsp;&nbsp;</span>
-                    <a href="#star-wars-episode" style="text-decoration: none;" (click)="onLogout()">LOG OUT</a>
-                </div>
-            </ng-template>
-        </div>
-    </div>
-</div> -->
-
 <div class="container-fluid">
     <div style="color: black;">
         ########################
     </div>
     <div class="logo">
         <img src="../../../assets/star-wars-logo.png" alt="">
+        <!-- <img [src]='this.src' alt=""> -->
         <!-- <img src="../../../assets/logo-starwars-mobil.jpg" alt=""> -->
     </div>
-    <div class="notLogged" *ngIf="this.userService.getIsUserValidated() == false; else logged">
+    <div class="notLogged p-3" *ngIf="this.userService.getIsUserValidated() == false; else logged">
         <a data-bs-toggle="modal" data-bs-target="#loginModal">LOG IN &nbsp; // &nbsp;</a>
-        <!-- <span>//&nbsp;&nbsp;</span> -->
         <a data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</a>
     </div>
     <ng-template #logged>
-        <div class="logged" *ngIf="this.userService.getIsUserValidated()">
+        <div class="logged p-3" *ngIf="this.userService.getIsUserValidated()">
             <a style="text-decoration: none; color: darkgray; cursor: auto;">{{ this.userService.getUser().nombreUsuario }} &nbsp; // &nbsp;</a>
             <a href="#star-wars-episode" (click)="onLogout()">LOG OUT</a>
         </div>

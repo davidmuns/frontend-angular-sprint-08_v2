@@ -1,19 +1,10 @@
-
-
 .container-fluid {
-    /* position: fixed;
-    z-index: 2; */
     display: flex; 
-    /* flex-wrap: wrap; */
     justify-content: space-around;
     align-self: center;
     background-color: black;
 }
 
-img {
-    width: 75%;
-    height: auto;
-}
 .logo {
     padding: 10px;
     /* background-image: url(src/assets/star-wars-logo.png); */
@@ -44,19 +35,12 @@ img {
     color: white;
 }
 
-span {
-    color: darkgray;
-    margin-top: 70px;
-    cursor: auto;
-}
-
 .logged {
     min-width: 150px;
     color: white;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    text-decoration: none;
 }
 
 .logged>a {
@@ -75,18 +59,13 @@ span {
 
 @media screen and (max-width: 767px) {
 
-    img {
-        width: 150px;
-        height: 70px;
-    }
-
     .logoStarWars {
         background-image: url(src/assets/logo-starwars-mobil.jpg);
     }
     .logo {
         display: flex;
         justify-content: center;
-        padding: 0;
+        
     }
     .container-fluid {
         flex-direction: column;

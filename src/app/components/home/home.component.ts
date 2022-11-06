@@ -11,25 +11,25 @@ export class HomeComponent implements OnInit {
   public getScreenWidth: any;
   public getScreenHeight: any;
 
-  constructor() { 
+  constructor() {
     this.disneyText = 'ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+';
-     
+
   }
 
   ngOnInit(): void {
     this.getScreenWidth = window.innerWidth;
-      this.getScreenHeight = window.innerHeight;
+    this.getScreenHeight = window.innerHeight;
   }
-  
+
   // Gettinng screen size in real time
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
 
-    if(this.getScreenWidth > 719){
+    if (this.getScreenWidth > 767) {
       this.disneyText = 'ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+';
-    }else{
+    } else {
       this.disneyText = 'STREAM STAR WARS ON DISNEY+';
     }
   }
