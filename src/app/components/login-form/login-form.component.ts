@@ -14,8 +14,10 @@ import { TokenService } from 'src/app/services/token.service';
 export class LoginFormComponent implements OnInit {
   // https://www.youtube.com/watch?v=AyuIaJTqBLs
   @ViewChild('closebutton') closebutton: any;
+  @ViewChild('openModal') openModal: any;
   loginForm: FormGroup;
   errorMsj!: string;
+  segundos: number = 20;
 
   constructor(
     private tokenService: TokenService,
@@ -50,6 +52,8 @@ export class LoginFormComponent implements OnInit {
         });
         this.loginForm.reset();
         this.closebutton.nativeElement.click();
+        //setTimeout(this.logOut, 5000);
+        //setInterval(() => this.tick(), 1000);
         // this.router.navigate(['/']);
       },
       err => {
@@ -59,7 +63,20 @@ export class LoginFormComponent implements OnInit {
         });
         this.loginForm.reset();
         this.userService.setIsUserValidated(false);
-      }     
+      }
     );
+  }
+
+  private tick() {
+    console.log(--this.segundos);
+    if (this.segundos === 5) {
+      this.openModal.nativeElement.click();
+    }
+  }
+
+  private logOut() {
+    alert("session is closed")
+    window.localStorage.clear();
+    this.router.navigate(['']);
   }
 }

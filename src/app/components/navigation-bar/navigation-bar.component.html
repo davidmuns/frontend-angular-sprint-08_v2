@@ -11,23 +11,27 @@
                         <p [routerLink]="''">HOME</p>
                     </li>
                     <li class="nav-item">
-                        <p *ngIf="this.userService.getIsUserValidated() === false" data-bs-toggle="modal"
+                        <p *ngIf="this.tokenService.isLogged() === false" data-bs-toggle="modal"
                             data-bs-target="#loginModal">
                             STARSHIPS
                         </p>
-                        <p *ngIf="this.userService.getIsUserValidated()"><a (click)="gotoShips()">STARSHIPS</a></p>
+                        <p *ngIf="this.tokenService.isLogged()"><a (click)="gotoShips()">STARSHIPS</a></p>
                     </li>
                     <li class="nav-item">
-                        <a *ngIf="this.userService.getIsUserValidated(); else noBlankSeries" href="#series" style="text-decoration: none;" target="_blank"><p>SERIES</p></a>
-                        <ng-template #noBlankSeries>
-                            <a href="#series" style="text-decoration: none;"><p>SERIES</p></a>
-                        </ng-template>
+                        <!-- <a *ngIf="this.tokenService.isLogged(); else noBlankSeries" href="#series" style="text-decoration: none;" target="_blank"><p>SERIES</p></a>
+                        <ng-template #noBlankSeries> -->
+                        <a href="#series" style="text-decoration: none;">
+                            <p>SERIES</p>
+                        </a>
+                        <!-- </ng-template> -->
                     </li>
                     <li class="nav-item">
-                        <a *ngIf="this.userService.getIsUserValidated(); else noBlankFilms" href="#films" style="text-decoration: none;" target="_blank"><p>FILMS</p></a>
-                        <ng-template #noBlankFilms>
-                            <a href="#films" style="text-decoration: none;"><p>FILMS</p></a>
-                        </ng-template>
+                        <!-- <a *ngIf="this.tokenService.isLogged(); else noBlankFilms" href="#films" style="text-decoration: none;" target="_blank"><p>FILMS</p></a>
+                        <ng-template #noBlankFilms> -->
+                        <a href="#films" style="text-decoration: none;">
+                            <p>FILMS</p>
+                        </a>
+                        <!-- </ng-template> -->
                     </li>
                     <p></p>
                 </ul>

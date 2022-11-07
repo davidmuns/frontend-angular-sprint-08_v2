@@ -3,17 +3,17 @@
         ########################
     </div>
     <div class="logo">
-        <img src="../../../assets/star-wars-logo.png" alt="">
+        <a routerLink="" style="cursor: pointer;"><img src="../../../assets/star-wars-logo.png" alt=""></a>
         <!-- <img [src]='this.src' alt=""> -->
         <!-- <img src="../../../assets/logo-starwars-mobil.jpg" alt=""> -->
     </div>
-    <div class="notLogged p-3" *ngIf="this.userService.getIsUserValidated() == false; else logged">
+    <div class="notLogged p-3" *ngIf="this.tokenService.isLogged() == false; else logged">
         <a data-bs-toggle="modal" data-bs-target="#loginModal">LOG IN &nbsp; // &nbsp;</a>
         <a data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</a>
     </div>
     <ng-template #logged>
-        <div class="logged p-3" *ngIf="this.userService.getIsUserValidated()">
-            <a style="text-decoration: none; color: darkgray; cursor: auto;">{{ this.userService.getUser().nombreUsuario }} &nbsp; // &nbsp;</a>
+        <div class="logged p-3" *ngIf="this.tokenService.isLogged()">
+            <a style="text-decoration: none; color: darkgray; cursor: auto;">{{ this.tokenService.getUsername() }} &nbsp; // &nbsp;</a>
             <a href="#star-wars-episode" (click)="onLogout()">LOG OUT</a>
         </div>
     </ng-template>

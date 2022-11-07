@@ -6,7 +6,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+ 
   disneyText!: string;
   public getScreenWidth: any;
   public getScreenHeight: any;

@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { IPilot } from './../../models/ipilot';
 import { PilotService } from './../../services/pilot.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pilot-detail',
@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pilot-detail.component.css']
 })
 export class PilotDetailComponent implements OnInit {
+
+  @Input() pilotsUrl!: string[]
 
   pilot!: IPilot;
   pilots: IPilot[] = [];
@@ -18,24 +20,26 @@ export class PilotDetailComponent implements OnInit {
   defImg!: string;
 
   constructor(private pilotService: PilotService, private router: Router) {
+    // let acc = 0;
     // this.pilotService.subscribeTrigger.subscribe(data => {
     //   if (data.length > 0) {
     //     data.forEach((url: string) => {
     //       this.getPilot(url);
+    //       console.log(acc++);
     //     });
     //   }
     // })
   }
 
   ngOnInit(): void {
+    
     this.pilotService.subscribeTrigger.subscribe(data => {
       if (data.length > 0) {
         data.forEach((url: string) => {
-          this.getPilot(url);
+          this.getPilot(url);       
         });
       }
     })
-
   }
 
   private getPilot(url: string): void {
