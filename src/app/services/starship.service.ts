@@ -25,7 +25,15 @@ export class StarshipService {
   }
 
   public getStarshipById(url: string): Observable<IStarship> {
-    this.starshipId = url.replace(/[^0-9]+/g, "");
+    
+    // URL ejemplo: https://swapi.py4e.com/api/starships/10/
+    // Dividir url en un array de tipo string
+    const arrStr: string[] = url.split('.');
+    // Guardar elemento 2 del array 
+    const element: string = arrStr[2];
+    // Usar la expresión regular con el signo ^ que niega la expresión para reemplazar todo lo que no sean números
+    this.starshipId = element.replace(/[^0-9]+/g, "");
+  
     return this.http.get<IStarship>(this.baseUrl + 'starships/' + this.starshipId)
   }
 }

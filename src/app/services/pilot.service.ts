@@ -18,7 +18,15 @@ export class PilotService {
   }
   
   public getPilotId(url: string): string {
-    this.pilotId = url.replace(/[^0-9]+/g, "");
+    
+    // URL ejemplo: https://swapi.py4e.com/api/people/4/
+    // Dividir url en un array de tipo string
+    const arrStr: string[] = url.split('.');
+    // Guardar elemento 2 del array 
+    const element: string = arrStr[2];
+    // Usar la expresión regular con el signo ^ que niega la expresión para reemplazar todo lo que no sean números
+    this.pilotId = element.replace(/[^0-9]+/g, "");
+    
     return this.pilotId;
   }
 }
