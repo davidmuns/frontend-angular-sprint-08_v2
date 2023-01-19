@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserService } from './../../services/user.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -14,7 +15,9 @@ export class SignUpFormComponent implements OnInit {
 
   signUpForm: FormGroup;
 
-  constructor(private userService: UserService,
+  constructor(
+    private router: Router,
+    private userService: UserService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService
   ) {
@@ -54,9 +57,7 @@ export class SignUpFormComponent implements OnInit {
         });
         this.signUpForm.reset();
         this.closebutton.nativeElement.click();
-        this.userService.setIsUserValidated(true);
-
-        // this.router.navigate(['/login']);
+        this.userService.setIsUserValidated(true);    
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
@@ -66,7 +67,7 @@ export class SignUpFormComponent implements OnInit {
         this.signUpForm.reset();
         // this.errorMsj = err.error.mensaje;
       });
-      console.log(this.userService.getIsUserValidated());
+      
 
 
     // Closing modal window and reseting form if user exists by pressing button submit (create account)
