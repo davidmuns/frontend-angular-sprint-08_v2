@@ -54,7 +54,7 @@ export class LoginFormComponent implements OnInit {
         this.closebutton.nativeElement.click();
         //setTimeout(this.logOut, 5000);
         //setInterval(() => this.tick(), 1000);
-        // this.router.navigate(['/']);
+        this.router.navigate(['/starship/all']);
       },
       err => {
         this.errorMsj = err.error.message;
